@@ -1,0 +1,200 @@
+/*
+ Theme Name: Mobile add-on to Moonlit Wisteria, - AO3 Site Skin
+ Author: intothisshadow
+ Author URI: https://www.so-obsessed.com
+
+ ============================================
+
+ HOW TO USE:
+ 1. Make a new site skin with the Moonlit Wisteria code (style_desktop.css in this same repository/zip.) and be sure to select "all" in the Media section. Save skin.
+ 2. Make another new site skin with the code below, selecting "only screen and (max-width: 42em)" in the Media section, and then also choosing Moonlit Wisteria as the parent skin. Save and active.
+
+ ============================================
+
+/* MEDIA: only screen and (max-width: 42em), handheld ENDMEDIA */
+
+/* --- Prevent horizontal scroll ---
+   AO3 sets min-width on #outer; box-sizing reset ensures padding never adds to 100% width. */
+
+html, body {
+  overflow-x: hidden !important;
+}
+
+#outer, #inner {
+  min-width: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+/* --- Main content area: full width --- */
+#main, #main.dashboard {
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+.splash {
+  padding: 0 0.5em !important;
+}
+
+/* User dashboard primary column → full width */
+.user .primary {
+  float: none !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* --- Profile page: nav buttons overlap icon ---
+   AO3's narrow CSS re-floats p.icon right after our stylesheet, so clear/float
+   overrides don't stick. padding-top pushes the nav below the icon height. */
+.user.home .primary.header.module ul.navigation.actions {
+  padding-top: 5em !important;
+}
+
+/* --- Dashboard sidebar → horizontal top bar --- */
+
+div#dashboard,
+div#dashboard.own {
+  border-radius: 0 !important;
+  margin-bottom: 0.5em !important;
+}
+
+/* AO3 narrow gives .dashboard .landmark clear:both — our skin had it removed
+   from the global rule to fix the inbox pagination bug. Re-add it here only,
+   scoped to div#dashboard so it doesn't hit #main.dashboard. */
+div#dashboard .landmark {
+  clear: both !important;
+}
+
+/* --- Splash page layout --- */
+
+/* AO3 narrow collapses all splash modules to full width.
+   Undo all our desktop float/width assignments. */
+.splash .browse,
+.splash div.news,
+.splash .intro,
+.splash .social {
+  float: none !important;
+  width: 100% !important;
+}
+
+/* Logged-in splash: two-column grid → single column */
+.logged-in .splash > .module {
+  float: none !important;
+  margin: 0 0 1em 0 !important;
+  width: 100% !important;
+}
+
+.logged-in .splash > div:nth-of-type(odd) {
+  clear: none !important;
+}
+
+.splash .browse ul,
+.splash .browse li {
+  float: none !important;
+  width: 100% !important;
+}
+
+.splash .browse li:nth-of-type(odd) {
+  padding-right: 0 !important;
+}
+
+.splash span.link {
+  float: none !important;
+}
+
+.splash .intro h2 {
+  font-size: 1.5em !important;
+}
+
+/* --- Blurb cards --- */
+
+/* Reduce padding and radius on small screens */
+li.work.blurb.group,
+li.bookmark.blurb.group,
+li.series.blurb.group,
+li.collection.blurb.group,
+li.skins.own.picture.blurb.group {
+  border-radius: 6px !important;
+  padding: 0.6em 0.75em !important;
+}
+
+/* --- Work page --- */
+
+/* On narrow screens give userstuff full width with minimal indent */
+.userstuff {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 100% !important;
+  padding: 0.5em 0.5em 0.5em 0.75em !important;
+}
+
+/* Meta box: reduce padding and radius */
+dl.work.meta.group {
+  border-radius: 6px !important;
+  padding: 0.75em 0.6em 0.6em !important;
+}
+
+/* Stats row: flex wrap so pairs sit inline and wrap cleanly */
+dl.work.meta.group dd.stats dl.stats {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+dl.work.meta.group dd.stats dl.stats dt,
+dl.work.meta.group dd.stats dl.stats dd {
+  font-size: 0.78em !important;
+  padding-top: 0 !important;
+}
+
+dl.work.meta.group dd.stats dl.stats dt {
+  flex-basis: auto !important;
+  letter-spacing: 0 !important;
+}
+
+dl.work.meta.group dd.stats dl.stats dd {
+  margin-right: 0.5em !important;
+}
+
+/* --- Forms --- */
+
+/* Inbox filter sidebar and other forms already handled by AO3 narrow,
+   but our custom fieldset styling needs radius reduction */
+fieldset {
+  border-radius: 6px !important;
+}
+
+/* --- Comments --- */
+
+/* Reduce nested thread indentation */
+.thread .thread {
+  margin-left: 0.5em !important;
+}
+
+/* --- Fandom tags: wrap as flex row instead of stacking --- */
+
+h5.fandoms.heading,
+.fandoms.heading {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: baseline !important;
+}
+
+h5.fandoms.heading li,
+.fandoms.heading li {
+  display: inline !important;
+  list-style: none !important;
+  margin: 0.15em 0.25em 0.15em 0 !important;
+}
+
+.fandoms a.tag,
+h5.fandoms.heading a {
+  font-size: 0.78em !important;
+  max-width: 80vw !important;
+  padding: 1px 7px !important;
+}
+
+/* ENDMEDIA */
