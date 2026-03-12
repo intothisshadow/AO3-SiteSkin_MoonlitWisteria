@@ -30,6 +30,20 @@ html, body {
   box-sizing: border-box !important;
 }
 
+/* --- Base font size: scale down from desktop 18px --- */
+
+body {
+  font-size: 15px !important;
+}
+
+/* --- Headings: scale down proportionally --- */
+
+#main h1, #content h1 { font-size: 1.8em !important; }
+#main h2, #content h2 { font-size: 1.5em !important; }
+#main h3, #content h3 { font-size: 1.25em !important; }
+#main h4, #content h4 { font-size: 1.1em !important; }
+#main h5, #content h5 { font-size: 1em !important; }
+
 /* --- Main content area: full width --- */
 #main, #main.dashboard {
   margin-left: 0 !important;
@@ -54,6 +68,64 @@ html, body {
   padding-top: 5em !important;
 }
 
+/* --- Header: compact on mobile --- */
+
+/* Shrink greeting text */
+#greeting,
+#greeting a,
+#greeting a:visited {
+  font-size: 0.8em !important;
+  font-weight: normal !important;
+}
+
+/* Hide greeting icon */
+#greeting .icon,
+#greeting .user .icon {
+  display: none !important;
+}
+
+/* Shrink search form */
+#header form[action="/search"],
+#header .search form,
+#header form.search {
+  font-size: 0.75em !important;
+}
+
+#header form[action="/search"] input[type="text"],
+#header .search form input[type="text"],
+#header form.search input[type="text"] {
+  padding: 0.2em 0.4em !important;
+  width: 7em !important;
+}
+
+#header form[action="/search"] input[type="submit"],
+#header form[action="/search"] button,
+#header .search form input[type="submit"],
+#header .search form button,
+#header form.search input[type="submit"],
+#header form.search button {
+  padding: 0.2em 0.4em !important;
+}
+
+#header h1,
+#header h1 span,
+#header h1 sup {
+  font-size: 0.9rem !important;
+}
+
+#header .primary.navigation > ul > li,
+#header .primary.navigation > ol > li {
+  height: auto !important;
+  vertical-align: top !important;
+}
+
+#header .primary.navigation a,
+#header .primary.navigation a:visited {
+  font-size: 0.85em !important;
+  padding: 0.15em 0.35em !important;
+  white-space: normal !important;
+}
+
 /* --- Dashboard sidebar → horizontal top bar --- */
 
 div#dashboard,
@@ -67,6 +139,20 @@ div#dashboard.own {
    scoped to div#dashboard so it doesn't hit #main.dashboard. */
 div#dashboard .landmark {
   clear: both !important;
+}
+
+/* --- Buttons & actions: smaller on mobile --- */
+
+.actions a, .actions a:link,
+.action, .action:link,
+.actions button,
+.actions input,
+input[type="submit"],
+button,
+.current,
+.actions label {
+  font-size: 0.8em !important;
+  padding: 0.15em 0.5em !important;
 }
 
 /* --- Splash page layout --- */
@@ -106,10 +192,6 @@ div#dashboard .landmark {
   float: none !important;
 }
 
-.splash .intro h2 {
-  font-size: 1.5em !important;
-}
-
 /* --- Blurb cards --- */
 
 /* Reduce padding and radius on small screens */
@@ -122,14 +204,33 @@ li.skins.own.picture.blurb.group {
   padding: 0.6em 0.75em !important;
 }
 
+/* --- Line height: tighter on mobile --- */
+
+.userstuff,
+#chapters .userstuff {
+  line-height: 1.6 !important;
+}
+
+li.comment blockquote {
+  line-height: 1.55 !important;
+}
+
+/* --- Work meta: tighten field spacing --- */
+
+dl.work.meta.group dt {
+  padding-top: 0.2em !important;
+}
+
 /* --- Work page --- */
 
 /* On narrow screens give userstuff full width with minimal indent */
 .userstuff {
+  margin-bottom: 1em !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
-  max-width: 100% !important;
-  padding: 0.5em 0.5em 0.5em 0.75em !important;
+  margin-top: 0.75em !important;
+  padding: 0.4em 0.4em 0.4em 0.6em !important;
+  width: 100% !important;
 }
 
 /* Meta box: reduce padding and radius */
@@ -146,7 +247,6 @@ dl.work.meta.group dd.stats dl.stats {
 
 dl.work.meta.group dd.stats dl.stats dt,
 dl.work.meta.group dd.stats dl.stats dd {
-  font-size: 0.78em !important;
   padding-top: 0 !important;
 }
 
@@ -192,7 +292,6 @@ h5.fandoms.heading li,
 
 .fandoms a.tag,
 h5.fandoms.heading a {
-  font-size: 0.78em !important;
   max-width: 80vw !important;
   padding: 1px 7px !important;
 }
