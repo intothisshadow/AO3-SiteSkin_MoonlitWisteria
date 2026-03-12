@@ -52,9 +52,9 @@ https://github.com/ZerafinaCSS/ | https://archiveofourown.org/works/57331222
 
 # SCREENSHOTS - Desktop
 
-![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot1.jpg)
+<img src="https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot1.jpg" alt="image" style="zoom:50%;" />
 
-![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot2.jpg)
+<img src="https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot2.jpg" alt="image" style="zoom:50%;" />
 
 ![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot3.jpg)
 
@@ -69,4 +69,16 @@ https://github.com/ZerafinaCSS/ | https://archiveofourown.org/works/57331222
 ![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot7.jpg)
 
 # SCREENSHOTS - Mobile
+
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot_mobile1.jpg)
+
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot_mobile2.jpg)
+
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot_mobile3.jpg)
+
+
+
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot_mobile4.jpg)
+
+
 
