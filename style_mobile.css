@@ -21,9 +21,9 @@ html, body {
 }
 
 #outer, #inner {
+  box-sizing: border-box !important;
   min-width: 0 !important;
   width: 100% !important;
-  box-sizing: border-box !important;
 }
 
 *, *::before, *::after {
@@ -178,9 +178,9 @@ fieldset {
 
 h5.fandoms.heading,
 .fandoms.heading {
+  align-items: baseline !important;
   display: flex !important;
   flex-wrap: wrap !important;
-  align-items: baseline !important;
 }
 
 h5.fandoms.heading li,

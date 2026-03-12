@@ -165,6 +165,7 @@
 /* fixed keeps the gradient from scrolling, so the same background persists at any scroll depth */
 body {
   background: linear-gradient(160deg, var(--clr-bg) 0%, #eaecf5 50%, var(--clr-wisteria-pale) 100%) fixed !important;
+  background-color: var(--clr-bg) !important; /* fallback if gradient fails */
   color: var(--clr-indigo) !important;
   font-size: 18px !important;
   overflow-x: hidden !important;
@@ -362,8 +363,8 @@ a[rel="author"], .byline a {
 #header h1 a,
 #header h1 a:visited,
 #header h1 a:hover {
-  border-bottom: none !important;
   -webkit-text-fill-color: transparent !important; /* keep gradient text on the link */
+  border-bottom: none !important;
 }
 
 #header .primary.navigation {
@@ -383,11 +384,11 @@ a[rel="author"], .byline a {
 #header .primary.navigation .dropdown .menu a,
 #header .primary.navigation .dropdown .menu a:visited {
   border-bottom: none !important;
+  box-sizing: border-box !important;
   color: var(--clr-indigo) !important;
   display: block !important;
   padding: 0.5em 1em !important;
   width: 100% !important;
-  box-sizing: border-box !important;
 }
 
 #header .primary.navigation .dropdown .menu a:hover {
@@ -411,9 +412,9 @@ a[rel="author"], .byline a {
 
 /* Dropdown li go block so each item is on its own row */
 #header .primary.navigation li li {
+  background: none !important;
   display: block !important;
   height: auto !important;
-  background: none !important;
 }
 
 #header .primary.navigation li li:hover {
@@ -448,11 +449,11 @@ a[rel="author"], .byline a {
 /* Dropdown links must override the general nav a display */
 #header .primary.navigation .dropdown .menu li a,
 #header .primary.navigation .dropdown .menu li a:visited {
-  display: block !important;
-  width: 100% !important;
   box-sizing: border-box !important;
-  margin-top: 0 !important;
+  display: block !important;
   font-size: 1.2em !important;
+  margin-top: 0 !important;
+  width: 100% !important;
 }
 
 #header .primary.navigation a:hover,
@@ -674,11 +675,11 @@ div#dashboard .current a, .sidebar .current a {
 }
 
 #user-fandoms ol.index.group {
+  background: linear-gradient(135deg, #FDFAF8 0%, #F5F0FA 100%) !important;
+  border-radius: 10px !important;
   margin-bottom: 1em !important;
   margin-top: 1em !important;
   padding: 1em !important;
-  background: linear-gradient(135deg, #FDFAF8 0%, #F5F0FA 100%) !important;
-  border-radius: 10px !important;
 }
 
 /* Profile page — Fandoms and Recent Works listboxes */
@@ -729,8 +730,8 @@ div#dashboard .current a, .sidebar .current a {
 
 .user.home p.icon img {
   border-radius: 4px !important;
-  outline: 3px solid transparent !important;
   box-shadow: 0 0 0 3px var(--clr-violet), 0 0 0 5px var(--clr-rose) !important;
+  outline: 3px solid transparent !important;
 }
 #user-fandoms h2, #user-fandoms h3,
 #user-works h2, #user-works h3,
@@ -824,8 +825,8 @@ label.action:hover, .action:hover, .action:focus,
 input[type="submit"]:hover, input[type="submit"]:focus,
 button:hover, button:focus {
   background: linear-gradient(135deg, var(--clr-indigo) 0%, var(--clr-violet) 60%, var(--clr-rose) 100%) !important;
-  border-top: 1px solid var(--clr-ink) !important;
   border-left: 1px solid var(--clr-ink) !important;
+  border-top: 1px solid var(--clr-ink) !important;
   box-shadow: inset 2px 2px 2px var(--clr-indigo-035) !important;
   color: var(--clr-bg) !important;
   text-decoration: none !important;
@@ -1061,8 +1062,8 @@ span.delete a {
 }
 
 .javascript .work.navigation .download .secondary > * {
-  margin-top: 0.25em !important;
   margin-bottom: 0.25em !important;
+  margin-top: 0.25em !important;
 }
 
 .javascript .work.navigation .secondary p {
@@ -1545,10 +1546,10 @@ li.series.blurb {
   background: none !important;
   border: none !important;
   border-bottom: 1px solid var(--clr-lavender-035) !important;
+  border-image: linear-gradient(90deg, transparent 0%, var(--clr-blush) 20%, var(--clr-rose) 50%, var(--clr-violet) 80%, transparent 100%) 1 0 0 0 !important; /* "1 0 0 0" applies the gradient to the top edge only */
   border-radius: 0 !important;
   border-top: 2px solid !important;
   border-top-color: transparent !important;
-  border-image: linear-gradient(90deg, transparent 0%, var(--clr-blush) 20%, var(--clr-rose) 50%, var(--clr-violet) 80%, transparent 100%) 1 0 0 0 !important; /* "1 0 0 0" applies the gradient to the top edge only */
   box-shadow: none !important;
   margin-bottom: 2em !important;
   padding: 1.25em 0 !important;
@@ -1561,10 +1562,10 @@ li.collection.picture.blurb.group {
   background: none !important;
   border: none !important;
   border-bottom: 1px solid var(--clr-lavender-035) !important;
+  border-image: linear-gradient(90deg, transparent 0%, var(--clr-blush) 20%, var(--clr-rose) 50%, var(--clr-violet) 80%, transparent 100%) 1 0 0 0 !important;
   border-radius: 0 !important;
   border-top: 2px solid !important;
   border-top-color: transparent !important;
-  border-image: linear-gradient(90deg, transparent 0%, var(--clr-blush) 20%, var(--clr-rose) 50%, var(--clr-violet) 80%, transparent 100%) 1 0 0 0 !important;
   box-shadow: none !important;
   margin-bottom: 2em !important;
   padding: 1.25em 0 !important;
@@ -1576,8 +1577,8 @@ li.own.collection.picture.blurb.group:hover,
 li.skins.own.picture.blurb.group:hover,
 li.collection.picture.blurb.group:hover {
   background: linear-gradient(135deg, var(--clr-sage-light-040) 0%, var(--clr-sage-030) 60%, var(--clr-lavender-020) 100%) !important;
-  border-radius: 6px !important;
   border-bottom-color: var(--clr-sage) !important;
+  border-radius: 6px !important;
   box-shadow: none !important;
 }
 
@@ -1591,10 +1592,10 @@ li.series.blurb p.datetime {
 /* Bookmarker's notes/tags block */
 .bookmark .user {
   background: linear-gradient(160deg, #EEF5FA 0%, #D8EAF2 100%) !important;
-  border-left: 3px solid rgba(168,191,208,0.5) !important;
-  border-top: none !important;
-  border-right: none !important;
   border-bottom: none !important;
+  border-left: 3px solid rgba(168,191,208,0.5) !important;
+  border-right: none !important;
+  border-top: none !important;
   color: var(--clr-ink) !important;
   margin-top: 0.75em !important;
   overflow: hidden !important;
@@ -1818,10 +1819,10 @@ dl.inspired.index.group {
   background: none !important;
   border: none !important;
   border-bottom: 1px solid var(--clr-lavender-035) !important;
+  border-image: linear-gradient(90deg, transparent 0%, var(--clr-blush) 20%, var(--clr-rose) 50%, var(--clr-violet) 80%, transparent 100%) 1 0 0 0 !important;
   border-radius: 0 !important;
   border-top: 2px solid !important;
   border-top-color: transparent !important;
-  border-image: linear-gradient(90deg, transparent 0%, var(--clr-blush) 20%, var(--clr-rose) 50%, var(--clr-violet) 80%, transparent 100%) 1 0 0 0 !important;
   box-shadow: none !important;
   margin-bottom: 2em !important;
   padding: 1.25em 0 !important;
@@ -1829,8 +1830,8 @@ dl.inspired.index.group {
 
 dl.inspired.index.group:hover {
   background: linear-gradient(135deg, var(--clr-sage-light-040) 0%, var(--clr-sage-030) 60%, var(--clr-lavender-020) 100%) !important;
-  border-radius: 6px !important;
   border-bottom-color: var(--clr-sage) !important;
+  border-radius: 6px !important;
 }
 
 dl.inspired.index.group dt.parent {
@@ -2187,10 +2188,10 @@ li.comment {
   background: none !important;
   border: none !important;
   border-bottom: 1px solid var(--clr-lavender-035) !important;
-  border-top: 2px solid !important;
-  border-top-color: transparent !important;
   border-image: linear-gradient(90deg, transparent 0%, var(--clr-blush) 20%, var(--clr-rose) 50%, var(--clr-violet) 80%, transparent 100%) 1 0 0 0 !important;
   border-radius: 0 !important;
+  border-top: 2px solid !important;
+  border-top-color: transparent !important;
   box-shadow: none !important;
   margin-bottom: 1.5em !important;
   min-width: 0 !important;
@@ -2203,8 +2204,8 @@ li.comment {
 div.comment:hover:not(:has(textarea)):not(:has(input[type="text"])),
 li.comment:hover:not(:has(textarea)):not(:has(input[type="text"])) {
   background: linear-gradient(135deg, var(--clr-sage-light-040) 0%, var(--clr-sage-030) 60%, var(--clr-lavender-020) 100%) !important;
-  border-radius: 6px !important;
   border-bottom-color: var(--clr-sage) !important;
+  border-radius: 6px !important;
   box-shadow: none !important;
 }
 
@@ -2317,8 +2318,8 @@ li.comment .actions a, li.comment .actions a:visited {
 
 li.comment .actions a:hover {
   background: linear-gradient(135deg, var(--clr-indigo) 0%, var(--clr-violet) 60%, var(--clr-rose) 100%) !important;
-  border-top: 1px solid var(--clr-ink) !important;
   border-left: 1px solid var(--clr-ink) !important;
+  border-top: 1px solid var(--clr-ink) !important;
   box-shadow: inset 2px 2px 2px var(--clr-indigo-035) !important;
   color: var(--clr-bg) !important;
   text-decoration: none !important;
@@ -2364,8 +2365,8 @@ li.comment blockquote {
   background: none !important;
   border: none !important;
   box-shadow: none !important;
-  padding: 0 !important;
   margin: 0 !important;
+  padding: 0 !important;
 }
 
 #inbox-form ol.comment.index.group {
@@ -2389,16 +2390,16 @@ li.comment blockquote {
   background: none !important;
   border: none !important;
   border-bottom: 1px solid var(--clr-lavender-035) !important;
-  border-top: 2px solid !important;
-  border-top-color: transparent !important;
   border-image: linear-gradient(90deg, transparent 0%, var(--clr-blush) 20%, var(--clr-rose) 50%, var(--clr-violet) 80%, transparent 100%) 1 0 0 0 !important;
   border-left: none !important;
-  border-right: none !important;
   border-radius: 0 !important;
+  border-right: none !important;
+  border-top: 2px solid !important;
+  border-top-color: transparent !important;
   box-shadow: none !important;
   margin-bottom: 1.5em !important;
-  padding: 1em 0 !important;
   opacity: 1 !important;
+  padding: 1em 0 !important;
 }
 
 #main.inbox-show #inbox-form li.unread.comment.group:hover,
@@ -2408,8 +2409,8 @@ li.comment blockquote {
 #inbox-form div.unread.comment.group:hover,
 #inbox-form div.read.comment.group:hover {
   background: linear-gradient(135deg, var(--clr-sage-light-040) 0%, var(--clr-sage-030) 60%, var(--clr-lavender-020) 100%) !important;
-  border-radius: 6px !important;
   border-bottom-color: var(--clr-sage) !important;
+  border-radius: 6px !important;
   box-shadow: none !important;
 }
 
@@ -2641,14 +2642,14 @@ span.claimed {
 }
 
 .splash .social.module .resp-sharing-button {
+  align-items: center !important;
   background: linear-gradient(135deg, var(--clr-indigo) 0%, var(--clr-violet) 100%) !important;
   border-radius: 8px !important;
   color: var(--clr-bg) !important;
   display: inline-flex !important;
-  align-items: center !important;
-  padding: 0.4em 0.9em !important;
   font-size: 0.9em !important;
   font-weight: 600 !important;
+  padding: 0.4em 0.9em !important;
 }
 
 .splash .social.module .resp-sharing-button__icon {
@@ -3446,8 +3447,8 @@ pre::before {
 }
 
 .system .userstuff {
-  max-width: 72em !important;
   margin: auto !important;
+  max-width: 72em !important;
 }
 
 .system:not(.feedbacks) .userstuff h3 {
@@ -3522,9 +3523,9 @@ pre::before {
 /* Skins new/edit — CSS textarea gets the same rainbow top border as blurbs */
 #main.skins-new textarea,
 #main.skins-edit textarea {
+  border-image: linear-gradient(90deg, transparent 0%, var(--clr-blush) 20%, var(--clr-rose) 50%, var(--clr-violet) 80%, transparent 100%) 1 0 0 0 !important;
   border-top: 2px solid !important;
   border-top-color: transparent !important;
-  border-image: linear-gradient(90deg, transparent 0%, var(--clr-blush) 20%, var(--clr-rose) 50%, var(--clr-violet) 80%, transparent 100%) 1 0 0 0 !important;
 }
 
 /* --- 4. DOCS --- */
