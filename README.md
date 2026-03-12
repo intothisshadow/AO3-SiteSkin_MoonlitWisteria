@@ -50,11 +50,23 @@ This skin comes with a mobile add-on that makes the skin look better on phones a
 Replace the AO3 Icons 2.0 by ZerafinaCSS, (Zerafina)
 https://github.com/ZerafinaCSS/ | https://archiveofourown.org/works/57331222
 
-# SCREENSHOTS
+# SCREENSHOTS - Desktop
 
-![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_BreathOfLife/refs/heads/main/screenshot1.jpg)
-![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_BreathOfLife/refs/heads/main/screenshot2.jpg)
-![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_BreathOfLife/refs/heads/main/screenshot3.jpg)
-![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_BreathOfLife/refs/heads/main/screenshot4.jpg)
-![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_BreathOfLife/refs/heads/main/screenshot5.jpg)
-![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_BreathOfLife/refs/heads/main/screenshot6.jpg)
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot1.jpg)
+
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot2.jpg)
+
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot3.jpg)
+
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot4.jpg)
+
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot5.jpg)
+
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot6.jpg)
+
+
+
+![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot7.jpg)
+
+# SCREENSHOTS - Mobile
+
