@@ -164,8 +164,8 @@
 
 /* fixed keeps the gradient from scrolling, so the same background persists at any scroll depth */
 body {
-  background: linear-gradient(160deg, var(--clr-bg) 0%, #eaecf5 50%, var(--clr-wisteria-pale) 100%) fixed !important;
   background-color: var(--clr-bg) !important; /* fallback if gradient fails */
+  background: linear-gradient(160deg, var(--clr-bg) 0%, #eaecf5 50%, var(--clr-wisteria-pale) 100%) fixed !important;
   color: var(--clr-indigo) !important;
   font-size: 18px !important;
   overflow-x: hidden !important;

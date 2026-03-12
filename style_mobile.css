@@ -17,10 +17,19 @@
    AO3 sets min-width on #outer; box-sizing reset ensures padding never adds to 100% width. */
 
 html, body {
+  background-color: #F5EDE8 !important; /* fallback if #outer gradient fails */
   overflow-x: hidden !important;
 }
 
-#outer, #inner {
+#outer {
+  background: linear-gradient(160deg, #F5EDE8 0%, #eaecf5 50%, #EDE8F5 100%) !important;
+  box-sizing: border-box !important;
+  min-height: 100vh !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+#inner {
   box-sizing: border-box !important;
   min-width: 0 !important;
   width: 100% !important;
@@ -65,7 +74,7 @@ body {
    AO3's narrow CSS re-floats p.icon right after our stylesheet, so clear/float
    overrides don't stick. padding-top pushes the nav below the icon height. */
 .user.home .primary.header.module ul.navigation.actions {
-  padding-top: 5em !important;
+  padding-top: 7em !important;
 }
 
 /* --- Header: compact on mobile --- */
