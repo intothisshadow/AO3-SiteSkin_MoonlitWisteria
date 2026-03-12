@@ -63,9 +63,6 @@ https://github.com/ZerafinaCSS/ | https://archiveofourown.org/works/57331222
 ![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot5.jpg)
 
 ![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot6.jpg)
-
-
-
 ![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot7.jpg)
 
 # SCREENSHOTS - Mobile
