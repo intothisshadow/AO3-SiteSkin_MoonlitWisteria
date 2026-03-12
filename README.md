@@ -52,9 +52,9 @@ https://github.com/ZerafinaCSS/ | https://archiveofourown.org/works/57331222
 
 # SCREENSHOTS - Desktop
 
-<img src="https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot1.jpg" alt="image" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot1.jpg" />
 
-<img src="https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot2.jpg" alt="image" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot2.jpg" />
 
 ![image](https://raw.githubusercontent.com/intothisshadow/AO3-SiteSkin_MoonlitWisteria/refs/heads/main/screenshot3.jpg)
 
