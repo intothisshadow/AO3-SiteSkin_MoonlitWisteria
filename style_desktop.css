@@ -1130,6 +1130,29 @@ li.collection.picture.blurb.group .actions button[type="submit"]:hover {
    8. FORMS & INPUTS
    ============================================ */
 
+/* --- parent-skin autocomplete overflow fix (skin form) --- */
+#main.skins-new fieldset.listbox,
+#main.skins-new fieldset.listbox * {
+overflow: visible !important;
+z-index: 1 !important;
+}
+
+#main.skins-new .autocomplete,
+#main.skins-new .autocomplete .dropdown,
+#main.skins-new .autocomplete .dropdown ul {
+overflow: visible !important;
+z-index: 999999 !important;
+max-height: none !important;
+position: relative !important;
+}
+
+#main.skins-new .autocomplete .dropdown {
+position: absolute !important;
+display: block !important;
+box-shadow: 0 3px 10px rgba(0,0,0,0.35) !important;
+background: #fff !important;
+}
+
 input[type="text"], input[type="email"], input[type="password"],
 textarea, select {
   background: #fff !important;
