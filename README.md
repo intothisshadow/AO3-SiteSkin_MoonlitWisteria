@@ -10,7 +10,7 @@ This theme uses Lora (https://fonts.google.com/specimen/Lora) for body and Admir
 
 In order to create a site skin, you need to have an AO3 account and you need to be logged in.
 
-**How to Install Your Custom AO3 Site Skin**
+# How to Install Your Custom AO3 Site Skin
 
 Follow these steps to customize your Archive of Our Own interface:
 
@@ -49,6 +49,10 @@ This skin comes with a mobile add-on that makes the skin look better on phones a
 
 Replace the AO3 Icons 2.0 by ZerafinaCSS, (Zerafina)
 https://github.com/ZerafinaCSS/ | https://archiveofourown.org/works/57331222
+
+# Last Updated
+
+- March 19, 2026 - New site skin page: parent skin dropdown getting cut off fixed
 
 # SCREENSHOTS - Desktop
 
