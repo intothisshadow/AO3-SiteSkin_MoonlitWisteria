@@ -1130,27 +1130,37 @@ li.collection.picture.blurb.group .actions button[type="submit"]:hover {
    8. FORMS & INPUTS
    ============================================ */
 
-/* --- parent-skin autocomplete overflow fix (skin form) --- */
-#main.skins-new fieldset.listbox,
-#main.skins-new fieldset.listbox * {
+/* --- Parent-skin autocomplete dropdown overflow fix (skin new/edit form) ---
+ *  The listbox fieldset clips the autocomplete dropdown by default.
+ *  Force overflow visible and high z-index so the suggestion list
+ *  isn't cut off inside the fieldset boundary.
+ *  Actual markup: fieldset.listbox.group > ul.autocomplete > li.input > div.autocomplete.dropdown */
+#main.skins-new fieldset.listbox.group,
+#main.skins-edit fieldset.listbox.group,
+#main.skins-new fieldset.listbox.group *,
+#main.skins-edit fieldset.listbox.group * {
 overflow: visible !important;
 z-index: 1 !important;
 }
 
-#main.skins-new .autocomplete,
-#main.skins-new .autocomplete .dropdown,
-#main.skins-new .autocomplete .dropdown ul {
-overflow: visible !important;
-z-index: 999999 !important;
+#main.skins-new ul.autocomplete,
+#main.skins-edit ul.autocomplete,
+#main.skins-new ul.autocomplete li.input,
+#main.skins-edit ul.autocomplete li.input,
+#main.skins-new div.autocomplete.dropdown,
+#main.skins-edit div.autocomplete.dropdown {
 max-height: none !important;
+overflow: visible !important;
 position: relative !important;
+z-index: 999999 !important;
 }
 
-#main.skins-new .autocomplete .dropdown {
-position: absolute !important;
-display: block !important;
+#main.skins-new div.autocomplete.dropdown,
+#main.skins-edit div.autocomplete.dropdown {
+background: var(--card-bg) !important;
 box-shadow: 0 3px 10px rgba(0,0,0,0.35) !important;
-background: #fff !important;
+display: block !important;
+position: absolute !important;
 }
 
 input[type="text"], input[type="email"], input[type="password"],
