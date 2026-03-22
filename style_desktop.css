@@ -2300,6 +2300,16 @@ li.comment .icon {
   box-shadow: 0 0 8px var(--clr-violet-030) !important;
   overflow: hidden !important;
   transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
+  flex-shrink: 0 !important;
+  width: 100px !important;
+  height: 100px !important;
+  min-width: 60px !important;
+}
+
+li.comment .icon img {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
 }
 
 li.comment:nth-child(odd) .icon {
