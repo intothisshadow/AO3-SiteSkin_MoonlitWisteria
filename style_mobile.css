@@ -305,4 +305,56 @@ h5.fandoms.heading a {
   padding: 1px 7px !important;
 }
 
+
+/* --- Footer: full-width single column on mobile --- */
+
+body #footer,
+body #footer * {
+  box-sizing: border-box !important;
+  float: none !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+body #footer {
+  overflow: hidden !important;
+  padding: 1.2em 1em !important;
+  width: 100% !important;
+}
+
+body #footer ul,
+body #footer ol,
+body #footer li {
+  clear: both !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+body #footer li {
+  margin-bottom: 0.3em !important;
+  padding: 0 !important;
+}
+
+body #footer li.module.group {
+  margin-bottom: 1.5em !important;
+}
+
+body #footer h4.heading,
+body #footer h3,
+body #footer h2 {
+  display: block !important;
+  overflow-wrap: break-word !important;
+  white-space: normal !important;
+  width: 100% !important;
+  word-break: normal !important;
+}
+
+body #footer a,
+body #footer a:visited {
+  display: inline !important;
+  overflow-wrap: break-word !important;
+  white-space: normal !important;
+  word-break: normal !important;
+}
+
 /* ENDMEDIA */
