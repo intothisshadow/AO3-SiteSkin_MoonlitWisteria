@@ -1,360 +1,625 @@
 /*
- Theme Name: Mobile add-on to Moonlit Wisteria, - AO3 Site Skin
- Author: intothisshadow
- Author URI: https://www.so-obsessed.com
+ * Theme Name: Moonlit Wisteria Mobile - AO3 Site Skin
+ * Author: intothisshadow
+ * Author URI: https://www.so-obsessed.com
+ *
+ * ============================================
+ *
+ * HOW TO USE:
+ * 1. Make a new site skin with the Moonlit Wisteria code (style_desktop.css) and
+ *   select "all" in the Media section. Save skin.
+ * 2. Make another new site skin with the code below, selecting
+ *   "only screen and (max-width: 62em)" in the Media section, and then
+ *   also choosing Moonlit Wisteria as the parent skin. Save and activate.
+ *
+ * ============================================
+ * UPDATED FONT SIZING STRATEGY:
+ * To change the font size, only edit the numbers in the "USER SETTINGS"
+ * block below. The rest of the skin will scale automatically.
+ * ============================================ */
 
- ============================================
-
- HOW TO USE:
- 1. Make a new site skin with the Moonlit Wisteria code (style_desktop.css in this same repository/zip.) and be sure to select "all" in the Media section. Save skin.
- 2. Make another new site skin with the code below, selecting "only screen and (max-width: 42em)" in the Media section, and then also choosing Moonlit Wisteria as the parent skin. Save and active.
-
- ============================================
-
-/* MEDIA: only screen and (max-width: 42em), handheld ENDMEDIA */
-
-/* --- Prevent horizontal scroll ---
-   AO3 sets min-width on #outer; box-sizing reset ensures padding never adds to 100% width. */
-
-html, body {
-  background-color: #F5EDE8 !important; /* fallback if #outer gradient fails */
-  overflow-x: hidden !important;
+:root {
+  /* 🟢 USER SETTINGS: CHANGE THESE NUMBERS TO RESIZE EVERYTHING 🟢 */
+  --desktop-base: 20px;   /* Original was 18px */
+  --tablet-base:  17px;   /* Original was 15px */
+  --mobile-base:  15px;   /* Original was 13px */
+  --tiny-base:    13px;   /* Original was 11px */
+  /* ------------------------------------------------------------ */
 }
 
-#outer {
+/* ============================================
+ *  SHARED — applies at all mobile widths (≤ 62em)
+ *  ============================================ */
+
+@media only screen and (max-width: 62em) {
+
+  /* ── Layout reset ────────────────────────── */
+
+  html, body {
+    background-color: #F5EDE8 !important;
+    overflow-x: hidden !important;
+  }
+
+  #outer {
   background: linear-gradient(160deg, #F5EDE8 0%, #eaecf5 50%, #EDE8F5 100%) !important;
   box-sizing: border-box !important;
   min-height: 100vh !important;
   min-width: 0 !important;
   width: 100% !important;
-}
+  }
 
-#inner {
+  #inner {
   box-sizing: border-box !important;
   min-width: 0 !important;
   width: 100% !important;
-}
+  }
 
-*, *::before, *::after {
-  box-sizing: border-box !important;
-}
+  *, *::before, *::after {
+    box-sizing: border-box !important;
+  }
 
-/* --- Base font size: scale down from desktop 18px --- */
+  /* ── Main content ────────────────────────── */
 
-body {
-  font-size: 15px !important;
-}
-
-/* --- Headings: scale down proportionally --- */
-
-#main h1, #content h1 { font-size: 1.8em !important; }
-#main h2, #content h2 { font-size: 1.5em !important; }
-#main h3, #content h3 { font-size: 1.25em !important; }
-#main h4, #content h4 { font-size: 1.1em !important; }
-#main h5, #content h5 { font-size: 1em !important; }
-
-/* --- Main content area: full width --- */
-#main, #main.dashboard {
+  #main, #main.dashboard {
   margin-left: 0 !important;
   width: 100% !important;
-}
+  }
 
-.splash {
-  padding: 0 0.5em !important;
-}
+  /* ── Header ──────────────────────────────── */
 
-/* User dashboard primary column → full width */
-.user .primary {
-  float: none !important;
-  margin: 0 !important;
-  width: 100% !important;
-}
-
-/* --- Profile page: nav buttons overlap icon ---
-   AO3's narrow CSS re-floats p.icon right after our stylesheet, so clear/float
-   overrides don't stick. padding-top pushes the nav below the icon height. */
-.user.home .primary.header.module ul.navigation.actions {
-  padding-top: 7em !important;
-}
-
-/* --- Header: compact on mobile --- */
-
-/* Shrink greeting text */
-#greeting,
-#greeting a,
-#greeting a:visited {
-  font-size: 0.8em !important;
-  font-weight: normal !important;
-}
-
-/* Hide greeting icon */
-#greeting .icon,
-#greeting .user .icon {
-  display: none !important;
-}
-
-/* Shrink search form */
-#header form[action="/search"],
-#header .search form,
-#header form.search {
-  font-size: 0.75em !important;
-}
-
-#header form[action="/search"] input[type="text"],
-#header .search form input[type="text"],
-#header form.search input[type="text"] {
-  padding: 0.2em 0.4em !important;
-  width: 7em !important;
-}
-
-#header form[action="/search"] input[type="submit"],
-#header form[action="/search"] button,
-#header .search form input[type="submit"],
-#header .search form button,
-#header form.search input[type="submit"],
-#header form.search button {
-  padding: 0.2em 0.4em !important;
-}
-
-#header h1,
-#header h1 span,
-#header h1 sup {
+  #header h1,
+  #header h1 span,
+  #header h1 sup {
   font-size: 0.9rem !important;
-}
+  }
 
-#header .primary.navigation > ul > li,
-#header .primary.navigation > ol > li {
+  #header .primary.navigation > ul > li,
+  #header .primary.navigation > ol > li {
   height: auto !important;
   vertical-align: top !important;
-}
+  }
 
-#header .primary.navigation a,
-#header .primary.navigation a:visited {
+  #header .primary.navigation a,
+  #header .primary.navigation a:visited {
   font-size: 0.85em !important;
   padding: 0.15em 0.35em !important;
   white-space: normal !important;
-}
+  }
 
-/* --- Dashboard sidebar → horizontal top bar --- */
+  /* Search form — shrink on tablet, hidden on phone (see ≤ 42em) */
+  #header form[action="/search"],
+  #header .search form,
+  #header form.search {
+  font-size: 0.75em !important;
+  }
 
-div#dashboard,
-div#dashboard.own {
+  #header form[action="/search"] input[type="text"],
+  #header .search form input[type="text"],
+  #header form.search input[type="text"] {
+  padding: 0.2em 0.4em !important;
+  width: 7em !important;
+  }
+
+  #header form[action="/search"] input[type="submit"],
+  #header form[action="/search"] button,
+  #header .search form input[type="submit"],
+  #header .search form button,
+  #header form.search input[type="submit"],
+  #header form.search button {
+  padding: 0.2em 0.4em !important;
+  }
+
+  /* ── Greeting ────────────────────────────── */
+
+  #greeting,
+  #greeting a,
+  #greeting a:visited {
+  font-size: 0.9em !important;
+  font-weight: bold !important;
+  }
+
+  #greeting .icon,
+  #greeting .user .icon {
+  display: none !important;
+  }
+
+  /* ── Dashboard ───────────────────────────── */
+
+  /* Override AO3's 25-media-midsize.css dark red border */
+  #dashboard,
+  #dashboard.own {
   border-radius: 0 !important;
   margin-bottom: 0.5em !important;
-}
+  }
 
-/* AO3 narrow gives .dashboard .landmark clear:both — our skin had it removed
-   from the global rule to fix the inbox pagination bug. Re-add it here only,
-   scoped to div#dashboard so it doesn't hit #main.dashboard. */
-div#dashboard .landmark {
+  /* AO3 narrow gives .dashboard .landmark clear:both — removed from global
+   *    rule to fix inbox pagination bug; re-add here scoped to #dashboard only */
+  #dashboard .landmark {
   clear: both !important;
-}
+  }
 
-/* --- Buttons & actions: smaller on mobile --- */
+  /* ── Profile page ────────────────────────── */
 
-.actions a, .actions a:link,
-.action, .action:link,
-.actions button,
-.actions input,
-input[type="submit"],
-button,
-.current,
-.actions label {
-  font-size: 0.8em !important;
-  padding: 0.15em 0.5em !important;
-}
+  .user .primary {
+    float: none !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
 
-/* --- Splash page layout --- */
+  /* AO3's narrow CSS re-floats p.icon; padding-top pushes nav below icon */
+  .user.home .primary.header.module ul.navigation.actions {
+    padding-top: 7em !important;
+  }
 
-/* AO3 narrow collapses all splash modules to full width.
-   Undo all our desktop float/width assignments. */
-.splash .browse,
-.splash div.news,
-.splash .intro,
-.splash .social {
-  float: none !important;
-  width: 100% !important;
-}
+  .home .header ul.actions {
+    padding-top: 0.7em !important;
+  }
 
-/* Logged-in splash: two-column grid → single column */
-.logged-in .splash > .module {
-  float: none !important;
-  margin: 0 0 1em 0 !important;
-  width: 100% !important;
-}
+  /* ── News / admin page ───────────────────── */
 
-.logged-in .splash > div:nth-of-type(odd) {
-  clear: none !important;
-}
+  .admin .primary .icon {
+    height: 50px !important;
+    width: 50px !important;
+  }
 
-.splash .browse ul,
-.splash .browse li {
-  float: none !important;
-  width: 100% !important;
-}
+  /* ── Buttons & actions ───────────────────── */
 
-.splash .browse li:nth-of-type(odd) {
-  padding-right: 0 !important;
-}
+  .actions a, .actions a:link,
+  .action, .action:link,
+  .actions button,
+  .actions input,
+  input[type="submit"],
+  button,
+  .current,
+  .actions label {
+    font-size: 0.8em !important;
+    padding: 0.15em 0.5em !important;
+  }
 
-.splash span.link {
-  float: none !important;
-}
+  /* ── Work blurb cards ────────────────────── */
 
-/* --- Blurb cards --- */
+  li.work.blurb.group,
+  li.bookmark.blurb.group,
+  li.series.blurb.group,
+  li.collection.blurb.group,
+  li.skins.own.picture.blurb.group {
+    border-radius: 6px !important;
+    padding: 0.6em 0.75em !important;
+  }
 
-/* Reduce padding and radius on small screens */
-li.work.blurb.group,
-li.bookmark.blurb.group,
-li.series.blurb.group,
-li.collection.blurb.group,
-li.skins.own.picture.blurb.group {
-  border-radius: 6px !important;
-  padding: 0.6em 0.75em !important;
-}
+  /* Fandom tags — flex row, wrap cleanly */
+  h5.fandoms.heading,
+  .fandoms.heading {
+    align-items: baseline !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
 
-/* --- Line height: tighter on mobile --- */
+  h5.fandoms.heading li,
+  .fandoms.heading li {
+    display: inline !important;
+    list-style: none !important;
+    margin: 0.15em 0.25em 0.15em 0 !important;
+  }
 
-.userstuff,
-#chapters .userstuff {
+  .fandoms a.tag,
+  h5.fandoms.heading a {
+    max-width: 80vw !important;
+    padding: 1px 7px !important;
+  }
+
+  /* Push fandom tags below the required-tags icon grid */
+
+  li.work.blurb .header.module h5.fandoms,
+  li.bookmark.blurb .header.module h5.fandoms,
+  li.series.blurb .header.module h5.fandoms,
+  li.work.blurb .header.module .byline,
+  li.bookmark.blurb .header.module .byline,
+  li.series.blurb .header.module .byline {
+    margin-left: 0px !important;
+    margin-top: 4em !important;
+  }
+
+  /* ── padding between fandom tag rows ───────────────────────────── */
+  .fandoms a,
+  .fandoms a:visited,
+  h5.fandoms.heading a,
+  h5.fandoms.heading a:visited,
+  dl.meta dd.fandom a,
+  #main.fandoms-index ul.tags.index.group li a.tag,
+  #main.fandoms-index ul.tags.index.group li a.tag:visited,
+  #main.media-index ol.index.group li a.tag,
+  #main.media-index ol.index.group li a.tag:visited {
+  margin-bottom: .6em !important;
+  }
+
+  /* ── Work page ───────────────────────────── */
+
+  .userstuff,
+  #chapters .userstuff {
   line-height: 1.6 !important;
-}
-
-li.comment blockquote {
-  line-height: 1.55 !important;
-}
-
-/* --- Work meta: tighten field spacing --- */
-
-dl.work.meta.group dt {
-  padding-top: 0.2em !important;
-}
-
-/* --- Work page --- */
-
-/* On narrow screens give userstuff full width with minimal indent */
-.userstuff {
   margin-bottom: 1em !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
   margin-top: 0.75em !important;
   padding: 0.4em 0.4em 0.4em 0.6em !important;
   width: 100% !important;
+  }
+
+  dl.work.meta.group {
+    border-radius: 6px !important;
+    padding: 0.75em 0.6em 0.6em !important;
+  }
+
+  dl.work.meta.group dt {
+    padding-top: 0.2em !important;
+  }
+
+  /* Stats row — flex wrap so pairs sit inline and wrap cleanly */
+  dl.work.meta.group dd.stats dl.stats {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+
+  dl.work.meta.group dd.stats dl.stats dt,
+  dl.work.meta.group dd.stats dl.stats dd {
+    padding-top: 0 !important;
+  }
+
+  dl.work.meta.group dd.stats dl.stats dt {
+    flex-basis: auto !important;
+    letter-spacing: 0 !important;
+  }
+
+  dl.work.meta.group dd.stats dl.stats dd {
+    margin-right: 0.5em !important;
+  }
+
+  /* ── Comments ────────────────────────────── */
+
+  li.comment blockquote {
+    line-height: 1.55 !important;
+  }
+
+  .thread .thread {
+    margin-left: 0.5em !important;
+  }
+
+  /* ── Forms & fieldsets ───────────────────── */
+
+  fieldset {
+    border-radius: 6px !important;
+  }
+
+  /* ── Splash / front page ─────────────────── */
+
+  .splash {
+    padding: 0 0.5em !important;
+  }
+
+  .splash .browse,
+  .splash div.news,
+  .splash .intro,
+  .splash .social {
+    float: none !important;
+    width: 100% !important;
+  }
+
+  .logged-in .splash > .module {
+    float: none !important;
+    margin: 0 0 1em 0 !important;
+    width: 100% !important;
+  }
+
+  .logged-in .splash > div:nth-of-type(odd) {
+    clear: none !important;
+  }
+
+  .splash .browse ul,
+  .splash .browse li {
+    float: none !important;
+    width: 100% !important;
+  }
+
+  .splash .browse li:nth-of-type(odd) {
+    padding-right: 0 !important;
+  }
+
+  .splash span.link {
+    float: none !important;
+  }
+
+  /* ── Footer ──────────────────────────────── */
+
+  body #footer,
+  body #footer * {
+    box-sizing: border-box !important;
+    float: none !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  body #footer {
+    overflow: hidden !important;
+    padding: 1.2em 1em !important;
+    width: 100% !important;
+  }
+
+  body #footer ul,
+  body #footer ol,
+  body #footer li {
+    clear: both !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  body #footer li {
+    margin-bottom: 0.3em !important;
+    padding: 0 !important;
+  }
+
+  body #footer li.module.group {
+    margin-bottom: 1.5em !important;
+  }
+
+  body #footer h4.heading,
+  body #footer h3,
+  body #footer h2 {
+    display: block !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    width: 100% !important;
+    word-break: normal !important;
+  }
+
+  body #footer a,
+  body #footer a:visited {
+    display: inline !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    word-break: normal !important;
+  }
+
 }
 
-/* Meta box: reduce padding and radius */
-dl.work.meta.group {
-  border-radius: 6px !important;
-  padding: 0.75em 0.6em 0.6em !important;
-}
 
-/* Stats row: flex wrap so pairs sit inline and wrap cleanly */
-dl.work.meta.group dd.stats dl.stats {
-  display: flex !important;
-  flex-wrap: wrap !important;
-}
+/* ============================================
+ *  MIDSIZE — tablet / landscape phone (≤ 62em)
+ *  (same breakpoint as SHARED; split for clarity)
+ *  ============================================ */
 
-dl.work.meta.group dd.stats dl.stats dt,
-dl.work.meta.group dd.stats dl.stats dd {
-  padding-top: 0 !important;
-}
+@media only screen and (max-width: 62em) {
 
-dl.work.meta.group dd.stats dl.stats dt {
-  flex-basis: auto !important;
-  letter-spacing: 0 !important;
-}
+  /* ── Body base ───────────────────────────── */
 
-dl.work.meta.group dd.stats dl.stats dd {
-  margin-right: 0.5em !important;
-}
+  body {
+    font-size: var(--tablet-base) !important;
+  }
 
-/* --- Forms --- */
+  /* ── Headings ────────────────────────────── */
 
-/* Inbox filter sidebar and other forms already handled by AO3 narrow,
-   but our custom fieldset styling needs radius reduction */
-fieldset {
-  border-radius: 6px !important;
-}
+  #main h1, #content h1 { font-size: 1.8em !important; }
+  #main h2, #content h2 { font-size: 1.5em !important; }
+  #main h3, #content h3 { font-size: 1.25em !important; }
+  #main h4, #content h4 { font-size: 1.1em !important; }
+  #main h5, #content h5 { font-size: 1em !important; }
 
-/* --- Comments --- */
-
-/* Reduce nested thread indentation */
-.thread .thread {
-  margin-left: 0.5em !important;
-}
-
-/* --- Fandom tags: wrap as flex row instead of stacking --- */
-
-h5.fandoms.heading,
-.fandoms.heading {
-  align-items: baseline !important;
-  display: flex !important;
-  flex-wrap: wrap !important;
-}
-
-h5.fandoms.heading li,
-.fandoms.heading li {
-  display: inline !important;
-  list-style: none !important;
-  margin: 0.15em 0.25em 0.15em 0 !important;
-}
-
-.fandoms a.tag,
-h5.fandoms.heading a {
-  max-width: 80vw !important;
-  padding: 1px 7px !important;
 }
 
 
-/* --- Footer: full-width single column on mobile --- */
+/* ============================================
+ *  SMALL — portrait phone (≤ 42em)
+ *  ============================================ */
 
-body #footer,
-body #footer * {
-  box-sizing: border-box !important;
-  float: none !important;
-  max-width: 100% !important;
-  min-width: 0 !important;
+@media only screen and (max-width: 42em) {
+
+  /* ── Body base ───────────────────────────── */
+
+  body {
+    font-size: var(--mobile-base) !important;
+  }
+
+  /* ── Header ──────────────────────────────── */
+
+  /* Hide search on phone — use Search nav link instead */
+  #header form[action="/search"],
+  #header .search form,
+  #header form.search {
+  display: none !important;
+  }
+
+  /* ── Main content ────────────────────────── */
+
+  #main,
+  #main.dashboard {
+  padding-left: 2% !important;
+  padding-right: 2% !important;
+  }
+
+  /* ── Headings ────────────────────────────── */
+
+  #main h1, #content h1 { font-size: 1.6em !important; }
+  #main h2, #content h2 { font-size: 1.3em !important; }
+  #main h3, #content h3 { font-size: 1.1em !important; }
+
+  /* ── Work blurb cards ────────────────────── */
+
+  li.work.blurb .header.module h4.heading,
+  li.bookmark.blurb .header.module h4.heading,
+  li.series.blurb .header.module h4.heading,
+  li.work.blurb .header.module .byline,
+  li.bookmark.blurb .header.module .byline,
+  li.series.blurb .header.module .byline {
+    margin-left: 66px !important;
+  }
+
+  li.work.blurb p.datetime,
+  li.bookmark.blurb p.datetime,
+  li.series.blurb p.datetime {
+    font-size: 0.7em !important;
+  }
+
+  li.work.blurb .content,
+  li.work.blurb ul.tags,
+  li.work.blurb blockquote,
+  li.work.blurb dl.stats,
+  li.work.blurb .actions,
+  li.bookmark.blurb .content,
+  li.bookmark.blurb ul.tags,
+  li.bookmark.blurb blockquote,
+  li.bookmark.blurb dl.stats,
+  li.bookmark.blurb .actions,
+  li.series.blurb .content,
+  li.series.blurb ul.tags,
+  li.series.blurb blockquote,
+  li.series.blurb dl.stats,
+  li.series.blurb .actions {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  blockquote.userstuff.summary,
+  .blurb blockquote.userstuff.summary {
+    margin: 0.4em 8px !important;
+    padding: 0.4em 0.6em !important;
+  }
+
+  li.work.blurb dl.stats,
+  li.bookmark.blurb dl.stats,
+  li.series.blurb dl.stats {
+    font-size: 0.78em !important;
+  }
+
+  .tags a,
+  .tags a:visited,
+  ul.tags a,
+  dl.meta a.tag {
+    font-size: 0.76em !important;
+    margin: 3px 1px !important;
+    padding: 3px 8px !important;
+  }
+
+  /* ── Work page ───────────────────────────── */
+
+  .userstuff {
+    max-width: 100% !important;
+    padding: 1em 0.75em !important;
+  }
+
+  dl.work.meta.group {
+    padding: 0.5em 0.75em !important;
+  }
+
+  .javascript .work.navigation .secondary a {
+    display: block !important;
+    padding-left: 0.75em !important;
+    padding-right: 0.75em !important;
+    text-align: center !important;
+    white-space: normal !important;
+    width: 100% !important;
+  }
+
+  /* ── Forms / filters ─────────────────────── */
+
+  form.filters {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  /* ── Splash / front page ─────────────────── */
+
+  .logged-in .splash > .module {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+
+  .logged-in .splash > div:nth-of-type(odd),
+  .logged-in .splash > div:nth-of-type(even) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* ── Notices ─────────────────────────────── */
+
+  .notice, p.notice, div.notice,
+  .caution, p.caution,
+  .error, p.error, div.error, ul.errors {
+    font-size: 0.85em !important;
+    padding: 0.5em 0.7em !important;
+  }
+
+  /* ── Footer ──────────────────────────────── */
+
+  body #footer {
+    font-size: 0.8em !important;
+  }
+
 }
 
-body #footer {
-  overflow: hidden !important;
-  padding: 1.2em 1em !important;
-  width: 100% !important;
-}
 
-body #footer ul,
-body #footer ol,
-body #footer li {
-  clear: both !important;
-  display: block !important;
-  width: 100% !important;
-}
+/* ============================================
+ *  VERY SMALL — tiny phones (≤ 30em)
+ *  ============================================ */
 
-body #footer li {
-  margin-bottom: 0.3em !important;
-  padding: 0 !important;
-}
+@media only screen and (max-width: 30em) {
 
-body #footer li.module.group {
-  margin-bottom: 1.5em !important;
-}
+  /* ── Body base ───────────────────────────── */
 
-body #footer h4.heading,
-body #footer h3,
-body #footer h2 {
-  display: block !important;
-  overflow-wrap: break-word !important;
-  white-space: normal !important;
-  width: 100% !important;
-  word-break: normal !important;
-}
+  body {
+    font-size: var(--tiny-base) !important;
+  }
 
-body #footer a,
-body #footer a:visited {
-  display: inline !important;
-  overflow-wrap: break-word !important;
-  white-space: normal !important;
-  word-break: normal !important;
-}
+  /* ── Work blurb cards ────────────────────── */
 
-/* ENDMEDIA */
+  li.work.blurb .content,
+  li.work.blurb ul.tags,
+  li.work.blurb blockquote,
+  li.work.blurb dl.stats,
+  li.work.blurb .actions,
+  li.bookmark.blurb .content,
+  li.bookmark.blurb ul.tags,
+  li.bookmark.blurb blockquote,
+  li.bookmark.blurb dl.stats,
+  li.bookmark.blurb .actions,
+  li.series.blurb .content,
+  li.series.blurb ul.tags,
+  li.series.blurb blockquote,
+  li.series.blurb dl.stats,
+  li.series.blurb .actions {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+
+  /* Datetime overlaps title at this width — hide it */
+  li.work.blurb p.datetime,
+  li.bookmark.blurb p.datetime,
+  li.series.blurb p.datetime {
+    display: none !important;
+  }
+
+  /* ── Work page ───────────────────────────── */
+
+  .userstuff {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+    padding: 0.8em 0.6em !important;
+  }
+
+  dl.work.meta.group {
+    padding: 0.4em 0.6em !important;
+  }
+
+  /* ── Comments ────────────────────────────── */
+
+  li.comment .icon,
+  li.comment .icon img {
+    height: 40px !important;
+    max-width: 40px !important;
+    min-width: 30px !important;
+    width: 40px !important;
+  }
+
+}
