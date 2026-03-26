@@ -194,7 +194,7 @@ table {
   word-break: break-word !important;
 }
 
-/* FONT: BODY. Replade ;ora as the body font here. */
+/* FONT: BODY. Replade Lora as the body font here. */
 body * {
   font-family: 'Lora', 'Palatino Linotype', Palatino, 'Book Antiqua', serif !important;
 }
