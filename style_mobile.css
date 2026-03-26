@@ -1,5 +1,5 @@
 /*
- * Theme Name: Moonlit Wisteria Mobile - AO3 Site Skin
+ * Theme Name: Moonlit Wisteria, Mobile Skin Add-on - AO3 Site Skin
  * Author: intothisshadow
  * Author URI: https://www.so-obsessed.com
  *
@@ -13,9 +13,15 @@
  *   also choosing Moonlit Wisteria as the parent skin. Save and activate.
  *
  * ============================================
- * UPDATED FONT SIZING STRATEGY:
- * To change the font size, only edit the numbers in the "USER SETTINGS"
- * block below. The rest of the skin will scale automatically.
+ * FONT SIZING STRATEGY:
+ *   Each breakpoint sets a single html font-size via CSS variables.
+ *   rem units are relative to html, so everything scales together
+ *   when you change the USER SETTINGS below.
+ *
+ * BREAKPOINTS (matching AO3's own media CSS):
+ *   max-width: 62em  — tablet / landscape phone
+ *   max-width: 42em  — portrait phone
+ *   max-width: 30em  — very small phones
  * ============================================ */
 
 :root {
