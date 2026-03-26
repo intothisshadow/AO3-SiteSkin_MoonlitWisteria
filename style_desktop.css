@@ -164,8 +164,8 @@
 
 /* fixed keeps the gradient from scrolling, so the same background persists at any scroll depth */
 body {
-  background-color: var(--clr-bg) !important; /* fallback if gradient fails */
   background: linear-gradient(160deg, var(--clr-bg) 0%, #eaecf5 50%, var(--clr-wisteria-pale) 100%) fixed !important;
+  background-color: var(--clr-bg) !important; /* fallback if gradient fails */
   color: var(--clr-indigo) !important;
   font-size: 18px !important;
   overflow-x: hidden !important;
@@ -2298,18 +2298,18 @@ li.comment .icon {
   border: 2px solid var(--clr-violet) !important;
   border-radius: 50% !important;
   box-shadow: 0 0 8px var(--clr-violet-030) !important;
-  overflow: hidden !important;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
   flex-shrink: 0 !important;
-  width: 100px !important;
   height: 100px !important;
   min-width: 60px !important;
+  overflow: hidden !important;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
+  width: 100px !important;
 }
 
 li.comment .icon img {
-  width: 100% !important;
-  height: 100% !important;
   display: block !important;
+  height: 100% !important;
+  width: 100% !important;
 }
 
 li.comment:nth-child(odd) .icon {
