@@ -155,6 +155,8 @@
   --clr-white-010:       rgba(255,255,255,0.1);
   --clr-sage-030:        rgba(168,208,176,0.3);
   --clr-sage-light-040:  rgba(200,230,204,0.4);
+  /* --- Font size --- */
+  --desktop-base: 20px;  /* 🟢 USER SETTING: change this to resize all text */
 }
 
 
@@ -163,11 +165,14 @@
    ============================================ */
 
 /* fixed keeps the gradient from scrolling, so the same background persists at any scroll depth */
+html {
+  font-size: var(--desktop-base) !important;
+}
+
 body {
   background: linear-gradient(160deg, var(--clr-bg) 0%, #eaecf5 50%, var(--clr-wisteria-pale) 100%) fixed !important;
   background-color: var(--clr-bg) !important; /* fallback if gradient fails */
   color: var(--clr-indigo) !important;
-  font-size: 18px !important;
   overflow-x: hidden !important;
   text-align: left !important;
 }
