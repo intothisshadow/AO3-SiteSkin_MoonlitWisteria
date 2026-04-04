@@ -172,7 +172,7 @@
 
   /* AO3's narrow CSS re-floats p.icon; padding-top pushes nav below icon */
   .user.home .primary.header.module ul.navigation.actions {
-    padding-top: 7em !important;
+    padding-top: 9em !important;
   }
 
   .home .header ul.actions {
@@ -182,8 +182,7 @@
   /* ── News / admin page ───────────────────── */
 
   .admin .primary .icon {
-    height: 50px !important;
-    width: 50px !important;
+    display: none !important;
   }
 
   /* ── Buttons & actions ───────────────────── */
