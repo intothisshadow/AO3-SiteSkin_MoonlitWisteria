@@ -39,7 +39,7 @@
   var(--clr-rose)  Rose Heart          (accents, gradients, borders)
   var(--clr-rose-soft)  Soft Rose           (links on dark bg, e.g. footer)
   var(--clr-wisteria-pale)  Pale Wisteria       (hover backgrounds, tag base)
-  var(--clr-lavender-soft)  Soft Lavender       (sidebar, borders, nav)
+  var(--clr-lavender-soft)  Soft Lavender       (dashboard, borders, nav)
   var(--clr-lavender-muted)  Muted Lavender      (gradient midpoint, borders)
   var(--clr-lavender-dusty)  Dusty Lavender      (button gradient end)
   var(--clr-violet)  Twilight Violet     (accents, gradients, borders)
@@ -609,7 +609,7 @@ a[rel="author"], .byline a {
    6. SIDEBAR & DASHBOARD
    ============================================ */
 
-div#dashboard, .sidebar {
+div#dashboard, #dashboard {
   background: linear-gradient(160deg, var(--clr-lavender-soft) 0%, var(--clr-mist-blue) 100%) !important;
   border: 1px solid var(--clr-lavender-soft) !important;
   border-radius: 14px !important;
@@ -617,9 +617,9 @@ div#dashboard, .sidebar {
 }
 
 /* Sidebar headings — violet-to-lavender gradient to harmonize with the cool-tone
-   sidebar background rather than competing with the warm rose page accents. */
-div#dashboard h2, .sidebar h2,
-div#dashboard h3, .sidebar h3 {
+   dashboard background rather than competing with the warm rose page accents. */
+div#dashboard h2, #dashboard h2,
+div#dashboard h3, #dashboard h3 {
   background: linear-gradient(90deg, var(--clr-violet) 0%, var(--clr-lavender-muted) 100%) !important;
   border-radius: 4px 4px 0 0 !important;
   color: var(--clr-bg) !important;
@@ -630,7 +630,7 @@ div#dashboard h3, .sidebar h3 {
 }
 
 div#dashboard a, div#dashboard a:link, div#dashboard a:visited,
-.sidebar a, .sidebar a:link, .sidebar a:visited {
+#dashboard a, #dashboard a:link, #dashboard a:visited {
   background: none !important;
   border: none !important;
   border-bottom: none !important;
@@ -649,7 +649,7 @@ div#dashboard a, div#dashboard a:link, div#dashboard a:visited,
   word-break: break-word !important;
 }
 
-div#dashboard a:hover, .sidebar a:hover {
+div#dashboard a:hover, #dashboard a:hover {
   background: linear-gradient(135deg, var(--clr-indigo) 0%, var(--clr-violet) 60%, var(--clr-rose) 100%) !important;
   box-shadow: 0 2px 8px var(--clr-violet-025) !important;
   box-sizing: border-box !important;
@@ -663,11 +663,11 @@ div#dashboard ul.navigation.actions li {
   display: block !important;
 }
 
-/* Active/current sidebar link — same dark gradient as hover but always visible,
+/* Active/current dashboard link — same dark gradient as hover but always visible,
    with a stronger box-shadow to lift it above the other items. */
-div#dashboard .current, .sidebar .current,
-div#dashboard li.current a, .sidebar li.current a,
-div#dashboard .current a, .sidebar .current a {
+div#dashboard .current, #dashboard .current,
+div#dashboard li.current a, #dashboard li.current a,
+div#dashboard .current a, #dashboard .current a {
   background: linear-gradient(135deg, var(--clr-indigo) 0%, var(--clr-violet) 70%, var(--clr-rose) 100%) !important;
   border-radius: 4px !important;
   box-shadow: 0 2px 10px var(--clr-violet-035) !important;
