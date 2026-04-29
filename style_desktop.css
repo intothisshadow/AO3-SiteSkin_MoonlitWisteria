@@ -2,7 +2,7 @@
  * Theme Name: Moonlit Wisteria - AO3 Site Skin
  * Author: intothisshadow
  * Author URI: https://www.so-obsessed.com
- * Last Updated: 2026-Apr-14 19:34 GMT
+ * Last Updated: 2026-Apr-29 14:14 GMT
  *
  * CODE & INSTRUCTION:
  *
@@ -610,6 +610,27 @@ a[rel="author"],
 {
   display: flex !important;
   padding-top: 0 !important;
+  width: auto !important;
+}
+
+#header form[action="/search"] fieldset,
+#header .search form fieldset,
+#header form.search fieldset
+{
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#header form[action="/search"] fieldset p,
+#header .search form fieldset p,
+#header form.search fieldset p
+{
+  display: flex !important;
+  margin: 0 !important;
 }
 
 #header form[action="/search"] input[type="text"],
@@ -619,6 +640,7 @@ a[rel="author"],
   border-radius: 4px 0 0 4px !important;
   flex: 1 !important;
   margin: 0 !important;
+  width: 14em !important;
 }
 
 #header form[action="/search"] input[type="submit"],
@@ -628,9 +650,33 @@ a[rel="author"],
 #header form.search input[type="submit"],
 #header form.search button
 {
+  background: linear-gradient(135deg, var(--clr-blush) 0%, var(--clr-lavender-soft) 50%, var(--clr-violet) 100%) !important;
+  border: 1px solid var(--clr-violet) !important;
+  border-left: none !important;
   border-radius: 0 4px 4px 0 !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 4px rgba(139, 122, 168, 0.25) !important;
+  color: var(--clr-indigo) !important;
+  font-size: 0.85em !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
   margin: 0 !important;
+  padding: 0.3em 1em !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3) !important;
+  text-transform: uppercase !important;
+  transition: background 0.2s ease, box-shadow 0.2s ease !important;
   white-space: nowrap !important;
+}
+
+#header form[action="/search"] input[type="submit"]:hover,
+#header form[action="/search"] button:hover,
+#header .search form input[type="submit"]:hover,
+#header .search form button:hover,
+#header form.search input[type="submit"]:hover,
+#header form.search button:hover
+{
+  background: linear-gradient(135deg, var(--clr-violet) 0%, var(--clr-rose) 60%, var(--clr-blush) 100%) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 2px 8px rgba(232, 137, 154, 0.3) !important;
+  color: var(--clr-indigo) !important;
 }
 
 /*
