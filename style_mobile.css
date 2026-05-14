@@ -717,6 +717,30 @@
     padding: 0.5em 0.75em !important;
   }
 
+  /* Fix 15: download dropdown — reset desktop absolute positioning so the panel
+     isn't clipped at the right edge of the viewport on narrow screens.
+     AO3's own 25-media-midsize.css makes this full-width + block; we must
+     override the desktop skin's position:absolute / right:0 / top / display:flex
+     with !important to match. */
+  .javascript .work.navigation li
+  {
+    position: static !important;
+  }
+
+  .javascript .work.navigation .secondary
+  {
+    box-sizing: border-box !important;
+    position: static !important;
+    width: 100% !important;
+  }
+
+  /* Only override display on the open state — never set display on .secondary
+     unconditionally or it overrides .hidden { display:none } and stays open */
+  .javascript .work.navigation .expanded+.secondary
+  {
+    display: block !important;
+  }
+
   .javascript .work.navigation .secondary a
   {
     display: block !important;

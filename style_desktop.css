@@ -1559,7 +1559,9 @@ fieldset:not(#header fieldset):not(#header *):not(#inbox-form fieldset.comments)
   padding: 1em 1.2em !important;
 }
 
-fieldset:not(#header fieldset):not(#header *):not(#inbox-form fieldset.comments):not(#inbox-form ol.comment.index.group):not(#inbox-form fieldset.actions):not(form.verbose fieldset):not(.verbose fieldset):not(form.single fieldset):not(.authentication fieldset) legend
+/* Hide all legends globally (AO3-validator-safe: no complex :not() selectors).
+ * Verbose/single/authentication legends are restored by the rule below. */
+legend
 {
   background: transparent !important;
   font-size: 0 !important;
@@ -3021,8 +3023,10 @@ li.comment blockquote
   color: var(--clr-ink) !important;
   font-size: 0.85em !important;
   font-weight: 700 !important;
+  height: auto !important;
   left: auto !important;
   letter-spacing: 0.04em !important;
+  opacity: 1 !important;
   padding: 0 0 0.25em 0 !important;
   position: static !important;
   top: auto !important;

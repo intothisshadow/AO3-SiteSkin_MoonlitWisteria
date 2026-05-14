@@ -23,10 +23,13 @@ The fieldset `legend` was set to `position: static` but still occupied block hei
 The zero-height legend rule used `fieldset:not(…)×5 legend`, giving it specificity `(0,5,2)`. A restore rule at lower specificity (`form.verbose legend` = `(0,1,2)`) could never win, so Post New Work, Edit Work, Preferences, and login form legends remained invisible. Fixed by adding `form.verbose`, `.verbose`, `form.single`, and `.authentication` fieldsets directly to the `:not()` exclusion chain on the zero-height rule, so those legends are never touched by it. A restore block below then applies the standard gradient pill styling; `.authentication fieldset legend` further down overrides with its distinct `violet → mist-blue` gradient.
 
 **Fix 5 — Dead code removal**
+
 - Removed stale `/* Fix 6: reduced from 1.5em top padding — legend is now static… */` comment (legend is now zeroed, not static-positioned).
 - Removed `fieldset fieldset legend` rule (gradient applied to a legend that's always invisible — never rendered).
 - Stripped dead properties from the zero-height legend rule (`border-radius`, `box-shadow`, `color`, `left`, `letter-spacing`, `top` — all no-ops at `height:0; opacity:0`).
 - Updated `.authentication legend` selector to `.authentication fieldset legend` for correct specificity.
+
+**Fix  6 — Verbose form legends invisible:** replaced complex `:not()` legend-hide with plain `legend {}` global hide; patched `#inbox-form fieldset.actions legend` to include `opacity: 1; height: auto`
 
 ---
 
@@ -40,6 +43,8 @@ Added a scoped `div#dashboard .current / #dashboard .current` mobile rule with `
 
 **Fix 3 — `.current` restored in mobile button overrides**
 The mobile button override block (font-size/padding resize) was missing `.current` after a prior edit. Re-added to keep the active tab consistently sized with other buttons at mobile scale.
+
+**Fix  4 — Download dropdown cut off on mobile**: reset `position: static` + `width: 100%` on `.javascript .work.navigation li` and `.secondary` within `≤ 62em`; `display: block` only on `.expanded+.secondary` to avoid overriding `.hidden`
 
 ---
 
