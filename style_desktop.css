@@ -2,7 +2,7 @@
  * Theme Name: Moonlit Wisteria - AO3 Site Skin
  * Author: intothisshadow
  * Author URI: https://www.so-obsessed.com
- * Last Updated: 2026-May-14 15:24 GMT
+ * Last Updated: 2026-May-15 23:21 GMT
  *
  * CODE & INSTRUCTION:
  *
@@ -172,13 +172,13 @@
  * ============================================
  */
 
-/* Fix 1: correct box model for #main so border/padding don't add to width */
+
 #main
 {
   box-sizing: border-box !important;
 }
 
-/* fixed keeps the gradient from scrolling, so the same background persists at any scroll depth */
+/* background-attachment:fixed keeps gradient stationary while scrolling */
 html
 {
   font-size: var(--desktop-base) !important;
@@ -194,13 +194,7 @@ body
   text-align: left !important;
 }
 
-/*
- * Mobile safety net — prevents any element from causing horizontal scroll.
- * Images and videos are capped at their container width.
- * Tables scroll horizontally within their container rather than breaking layout.
- * Note: iframes are intentionally excluded from height:auto — applying it to
- * all iframes collapses the TinyMCE rich text editor iframe on works/new.
- */
+
 img,
 video,
 object,
@@ -210,7 +204,7 @@ embed
   max-width: 100% !important;
 }
 
-/* Keep embedded iframes from overflowing on mobile without forcing height:auto. */
+/* max-width only — height:auto would collapse TinyMCE */
 iframe
 {
   max-width: 100% !important;
@@ -224,20 +218,11 @@ table
   word-break: break-word !important;
 }
 
-/* FONT: BODY. Replade Lora as the body font here. */
+/* FONT: BODY — replace Lora here */
 body *
 {
   font-family: 'Lora', 'Palatino Linotype', Palatino, 'Book Antiqua', serif !important;
 }
-
-input,
-select,
-textarea,
-button,
-.actions,
-pre,
-code
-{}
 
 hr
 {
@@ -339,11 +324,6 @@ h4.heading
   padding-bottom: 4px !important;
 }
 
-/*
- * AO3 default gives landmark headings a red background pill. They serve as
- * skip-navigation anchors, not visual headings — collapse them entirely rather
- * than just removing the color, to prevent the empty pill taking up vertical space.
- */
 h3.landmark.heading,
 h4.landmark.heading,
 h5.landmark.heading,
@@ -366,11 +346,6 @@ h6.landmark.heading
  * ============================================
  */
 
-/*
- * border-bottom used instead of text-decoration to simulate an underline that
- * sits below descenders without touching them. Solid for unvisited, dashed for
- * visited — gives a visited-state hint beyond color alone.
- */
 a,
 a:link
 {
@@ -399,7 +374,6 @@ button:focus
   outline: 1px dotted var(--clr-violet) !important;
 }
 
-/* Header/greeting links — no underline on hover; the color change on hover is sufficient feedback */
 #header a:hover,
 #header a:focus,
 #greeting a:hover,
@@ -418,10 +392,7 @@ h4.heading a:visited
   font-weight: bold !important;
 }
 
-/*
- * Pseud / Author names — use the visited-link color (var(--clr-indigo-violet)) rather than the base link
- * color so authors read as slightly secondary, with the work title as the primary focus.
- */
+/* Author names */
 a[rel="author"],
 .byline a
 {
@@ -440,10 +411,9 @@ a[rel="author"],
   background: linear-gradient(135deg, var(--clr-blush) 0%, var(--clr-lavender-soft) 100%) !important;
   border-bottom: 6px solid !important;
   border-image: linear-gradient(90deg, var(--clr-blush) 0%, var(--clr-rose) 40%, var(--clr-violet) 70%, var(--clr-mist-blue) 100%) 1 !important;
-  /* full-bleed rainbow stripe along the header bottom border */
 }
 
-/* Logo image hidden — site title text used instead */
+/* Logo image hidden */
 #header .logo,
 #header .logo img,
 #header h1 img
@@ -469,7 +439,7 @@ a[rel="author"],
   background-clip: text !important;
   filter: drop-shadow(0 1px 2px rgba(61, 53, 102, 0.18)) !important;
   font-family: 'Admiration Pains', 'Lora', Palatino, serif !important;
-  /* FONT: HEADER. Replade Admiration Pains as the header font here. */
+  /* FONT: HEADER — replace Admiration Pains here */
   font-size: 1.25rem !important;
   font-style: normal !important;
   font-weight: 800 !important;
@@ -493,7 +463,7 @@ a[rel="author"],
 #header h1 a:hover
 {
   -webkit-text-fill-color: transparent !important;
-  /* keep gradient text on the link */
+  /* keep gradient text on link */
   border-bottom: none !important;
 }
 
@@ -503,10 +473,7 @@ a[rel="author"],
   box-shadow: none !important;
 }
 
-/*
- * Dropdown sub-menus must have a solid background — they float over page content and
- * would appear broken if the header gradient showed through them.
- */
+/* Dropdown menus need a solid background — they float over page content */
 #header .primary.navigation .dropdown .menu,
 #header .primary.navigation .dropdown .menu li
 {
@@ -533,7 +500,7 @@ a[rel="author"],
   text-decoration: none !important;
 }
 
-/* Top-level nav li stay inline for the horizontal bar */
+/* Top-level nav items stay inline for the horizontal bar */
 #header .primary.navigation>ul>li,
 #header .primary.navigation>ol>li
 {
@@ -548,7 +515,7 @@ a[rel="author"],
   background: var(--clr-violet-050) !important;
 }
 
-/* Dropdown li go block so each item is on its own row */
+/* Dropdown items go block — each on its own row */
 #header .primary.navigation li li
 {
   background: none !important;
@@ -735,7 +702,7 @@ a[rel="author"],
   border-radius: 4px !important;
 }
 
-/* Dropdown li go block so each item is on its own row */
+/* Greeting dropdown items go block */
 #greeting li li
 {
   display: block !important;
@@ -826,10 +793,7 @@ div#dashboard,
   width: 210px !important;
 }
 
-/*
- * Sidebar headings — violet-to-lavender gradient to harmonize with the cool-tone
- * dashboard background rather than competing with the warm rose page accents.
- */
+/* Sidebar headings */
 div#dashboard h2,
 #dashboard h2,
 div#dashboard h3,
@@ -864,7 +828,7 @@ div#dashboard a:visited,
   overflow-wrap: break-word !important;
   padding: 2px 6px !important;
   text-align: left !important;
-  /* Fix 5: override AO3 default text-align:right on #dashboard ul */
+  /* Fix 5: override AO3's text-align:right on #dashboard ul */
   text-transform: uppercase !important;
   transition: background 0.2s ease, color 0.2s ease, padding-left 0.15s ease !important;
   white-space: normal !important;
@@ -889,9 +853,7 @@ div#dashboard ul.navigation.actions li
 }
 
 /*
- * Active/current dashboard link. display:block and position:static keep it
- * flush with sibling links (which are also display:block). Without position:static
- * the base button block's position:relative causes a height bump.
+ * Active/current dashboard link. position:static prevents the height bump caused by the base button's position:relative.
  */
 div#dashboard .current,
 #dashboard .current,
@@ -996,16 +958,10 @@ div#dashboard .current a,
 /*
  * ============================================
  * 7. BUTTONS & ACTIONS
- * Styled to mirror AO3's actions.css structure,
- * recolored throughout with the Witching Hour palette.
  * ============================================
  */
 
-/*
- * --- Base: all action-type elements share this pill shape and orchid gradient ---
- * Mirrors: .actions a, .action, .actions button, .actions input,
- * input[type="submit"], button, .current, .actions label
- */
+/* Base */
 .actions a,
 .actions a:link,
 .action,
@@ -1042,13 +998,12 @@ button,
   width: auto !important;
 }
 
-/* button-specific font/box resets (mirrors AO3 default) */
+/* button font/box resets */
 button
 {
   box-sizing: content-box !important;
 }
 
-/* label.action has slightly smaller padding in AO3 default */
 label.action
 {
   padding: 0.15em 0.375em !important;
@@ -1069,10 +1024,7 @@ input[type="submit"]
   padding: 0 !important;
 }
 
-/*
- * --- Visited state — intentionally the same color as base. Action buttons
- * should look equally clickable whether used before or not.
- */
+/* Visited state */
 .actions a:visited,
 .action:visited,
 .action a:link,
@@ -1081,7 +1033,7 @@ input[type="submit"]
   color: var(--clr-indigo) !important;
 }
 
-/* --- Hover / focus state — dark navy-to-amethyst gradient with inset shadow --- */
+/* Hover/focus state */
 .actions a:hover,
 .actions button:hover,
 .actions input:hover,
@@ -1104,7 +1056,7 @@ button:focus
   text-decoration: none !important;
 }
 
-/* --- Active / current state — deep navy inset, light border --- */
+/* Active/current state */
 .actions a:active,
 .current,
 a.current,
@@ -1117,7 +1069,7 @@ a:link.current,
   color: var(--clr-bg) !important;
 }
 
-/* --- Disabled label --- */
+/* Disabled label */
 .actions label.disabled
 {
   background: linear-gradient(180deg, var(--clr-lavender-soft) 0%, var(--clr-lavender-dusty) 100%) !important;
@@ -1126,7 +1078,7 @@ a:link.current,
   opacity: 0.65 !important;
 }
 
-/* --- Disabled select inside actions --- */
+/* Disabled select inside actions */
 .actions .disabled select
 {
   background: transparent !important;
@@ -1148,9 +1100,9 @@ ul#skiplinks,
   opacity: 0 !important;
 }
 
-/* --- Layout rules mirroring AO3 actions.css positioning --- */
+/* Layout rules */
 
-/* Submit alignment */
+/*  Submit alignment */
 p.submit,
 input.submit,
 dd.submit
@@ -1158,7 +1110,7 @@ dd.submit
   text-align: right !important;
 }
 
-/* In table cells, actions should not float */
+/* No float inside table cells */
 th .actions,
 td .actions
 {
@@ -1253,7 +1205,7 @@ ol.year
   text-align: center !important;
 }
 
-/* --- .delete links — keep the dark crimson style but with orchid shadow --- */
+/* .delete links .*/
 .delete a,
 span.delete
 {
@@ -1288,7 +1240,7 @@ span.delete a
   /* one above the download .secondary panel at z-index:53 */
 }
 
-/* --- Heading context — smaller font for actions inside headings --- */
+/* --- Heading context — smaller font --- */
 .heading .actions,
 .heading .action,
 .heading span.actions
@@ -1316,13 +1268,7 @@ span.delete a
 }
 
 /*
- * --- Work navigation download dropdown.
- * AO3 uses the .javascript body class to toggle between two states:
- * - Without JS: .work.navigation .download renders as a static bordered panel.
- * - With JS:    the panel is hidden and .javascript .work.navigation .download
- * becomes a positioned container with the .secondary as a floating dropdown.
- * These rules mirror that two-state pattern with Moonlit Wisteria colors. ---
- */
+ * --- Work navigation download dropdown --- */
 .work.navigation .download
 {
   display: block !important;
@@ -1403,11 +1349,6 @@ span.delete a
   padding: 0 !important;
 }
 
-/*
- * --- Subscribe button: Safari/iOS renders input[type=submit] inside a form as a
- * native OS widget, ignoring background/border styles. appearance:none opts out
- * so our gradient is applied consistently. ---
- */
 li.subscribe form input[type="submit"]
 {
   -webkit-appearance: none !important;
@@ -1425,16 +1366,8 @@ li.subscribe form input[type="submit"]
   font-weight: 700 !important;
 }
 
-/*
- * #kudo_submit hover is merged with the collection picture blurb submit hover
- * (before §8) — both use the same dark gradient, saving a duplicate rule.
- */
 
-/*
- * --- Actions label: used for sort-and-filter form toggles (e.g. 'Sort by', 'Order').
- * Lighter than full action buttons — same pill shape but pale wisteria base
- * so they read as secondary controls next to primary action buttons. ---
- */
+
 .actions label
 {
   background: var(--clr-wisteria-pale) !important;
@@ -1469,13 +1402,6 @@ li.collection.picture.blurb.group .actions button[type="submit"]:hover
  * ============================================
  */
 
-/*
- * --- Parent-skin autocomplete dropdown overflow fix (skin new/edit form) ---
- * The listbox fieldset clips the autocomplete dropdown by default.
- * Force overflow visible and high z-index so the suggestion list
- * isn't cut off inside the fieldset boundary.
- * Actual markup: fieldset.listbox.group > ul.autocomplete > li.input > div.autocomplete.dropdown
- */
 #main.skins-new fieldset.listbox.group,
 #main.skins-edit fieldset.listbox.group,
 #main.skins-new fieldset.listbox.group *,
@@ -1559,8 +1485,7 @@ fieldset:not(#header fieldset):not(#header *):not(#inbox-form fieldset.comments)
   padding: 1em 1.2em !important;
 }
 
-/* Hide all legends globally (AO3-validator-safe: no complex :not() selectors).
- * Verbose/single/authentication legends are restored by the rule below. */
+/* Hide all legends globally */
 legend
 {
   background: transparent !important;
@@ -1572,10 +1497,7 @@ legend
   position: static !important;
 }
 
-/*
- * Visible legends: verbose forms (post/edit work, preferences), single forms,
- * authentication. These forms are excluded from the zero-height rule above.
- */
+/* Visible legends (post/edit work, preferences etc.) */
 form.verbose legend,
 .verbose form legend,
 form.single legend,
@@ -1618,14 +1540,9 @@ fieldset fieldset.listbox
   box-shadow: none !important;
 }
 
-/*
- * --- Sort & Filter panel expander chips ("Ratings", "Warnings" etc.).
+/* --- Sort & Filter ("Ratings", "Warnings" etc.).
  * These are button.expander inside dt.filter-toggle — NOT .actions labels.
- * Must be scoped tightly to avoid overriding the .actions label rule above,
- * and to prevent the full action-button gradient appearing on these quiet chips.
- * Previous failed selectors: #work-filters .actions label, ul.options li label,
- * form.filters label — none of those matched the actual AO3 HTML structure. ---
- */
+ * Must be scoped tightly to avoid overriding the .actions label rule above and to prevent the full action-button gradient appearing on these chips. --- */
 dt.filter-toggle button.expander
 {
   background: var(--clr-lavender-025) !important;
@@ -1684,10 +1601,7 @@ dl.meta a.tag:hover
 }
 
 /*
- * Max-width cap for typed tags — prevents a single very long tag from
- * spanning the full container width on narrow screens. 90vw allows two
- * short tags side-by-side while still giving long ones room to breathe.
- */
+ * Max-width cap for typed tags */
 .fandom a.tag,
 .fandoms a.tag,
 .work .fandom a.tag,
@@ -1717,7 +1631,7 @@ dl.meta dd.warning a.tag,
   white-space: normal;
 }
 
-/* --- RATING — deep navy --- */
+/* --- RATING --- */
 .rating a,
 .rating a:visited,
 dl.meta dd.rating a
@@ -1737,7 +1651,7 @@ dl.meta dd.rating a:hover
   color: #fff !important;
 }
 
-/* --- WARNING — vivid amethyst --- */
+/* --- WARNING --- */
 .warnings a,
 .warning a,
 .warnings a:visited,
@@ -1765,7 +1679,7 @@ dl.meta dd.warnings a:hover
   transform: translateY(-1px) !important;
 }
 
-/* --- CATEGORY — soft mint/sage --- */
+/* --- CATEGORY --- */
 .tags .category a,
 .tags .category a:visited,
 dl.meta dd.category a,
@@ -1791,11 +1705,8 @@ li.blurb .category a:hover
 }
 
 /*
- * --- FANDOM — blush rose.
- * Consolidated selector covers: blurb card fandom tags, fandoms-index pill links,
- * media-index pill links, and dl.meta fandom tags on work pages.
- * border-bottom:none strips the generic link underline-border added in §3. ---
- */
+ * --- FANDOM — 
+ * Consolidated selector covers: blurb card fandom tags, fandoms-index, media-index, and dl.meta fandom tags on work pages --- */
 .fandoms a,
 .fandoms a:visited,
 h5.fandoms.heading a,
@@ -1836,7 +1747,7 @@ dl.meta dd.fandom a:hover,
   transform: translateY(-1px) !important;
 }
 
-/* --- CHARACTER — crisp lavender --- */
+/* --- CHARACTER --- */
 .characters a,
 .characters a:visited,
 dl.meta dd.character a
@@ -1858,7 +1769,7 @@ dl.meta dd.character a:hover
   transform: translateY(-1px) !important;
 }
 
-/* --- RELATIONSHIP — golden/warm --- */
+/* --- RELATIONSHIP --- */
 .relationships a,
 .relationships a:visited,
 dl.meta dd.relationship a
@@ -1880,7 +1791,7 @@ dl.meta dd.relationship a:hover
   transform: translateY(-1px) !important;
 }
 
-/* --- FREEFORM / additional tags — mist blue --- */
+/* --- FREEFORM --- */
 .freeforms a,
 .freeforms a:visited,
 .additional-tags a,
@@ -1905,7 +1816,7 @@ dl.meta dd.freeform a:hover
   transform: translateY(-1px) !important;
 }
 
-/* --- Bookmarker's tags — ul.meta.tags.commas (no type class, unstyled by default) --- */
+/* --- Bookmarker's tags --- */
 ul.meta.tags a,
 ul.meta.tags a:visited
 {
@@ -1924,7 +1835,7 @@ ul.meta.tags a:hover
   transform: translateY(-1px) !important;
 }
 
-/* Stats row */
+/* --- Stats row -- */
 
 ul.tags.cloud.index.group li
 {
@@ -2014,13 +1925,7 @@ ul.tags.cloud.index.group li a.cloud8:hover
   color: var(--clr-bg) !important;
 }
 
-/*
- * AO3 inserts commas between tag list items in two ways depending on the page:
- * (a) as CSS generated content via li::after { content: ", " }
- * (b) as literal text nodes inside the li
- * color:transparent on the parent hides method (b); content:"" with display:none
- * on li::after suppresses method (a). Both are needed for full coverage.
- */
+/* --- No commas between fandom tags --- */
 .work .fandom.heading,
 .fandoms.heading
 {
@@ -2059,11 +1964,7 @@ ul.commas li::after
  */
 
 /*
- * Shared base for all blurb card types.
- * li.work.blurb / li.bookmark.blurb / li.series.blurb use the plain white-to-blush gradient.
- * li.own.collection / li.skins.own / li.collection.picture blurbs use a top accent border.
- * Hover state is shared across all.
- */
+ * Shared base for all blurb card types. Hover state is shared across all. */
 
 li.work.blurb,
 li.bookmark.blurb,
@@ -2133,7 +2034,7 @@ li.series.blurb p.datetime
   padding: 0.4em 0.75em !important;
 }
 
-/* Deletion notice inside blurbs — compact, not full width */
+/* Deletion notice inside blurbs */
 li.work.blurb p.caution.notice
 {
   background: linear-gradient(135deg, #C02020 0%, #8B0000 100%) !important;
@@ -2170,7 +2071,7 @@ li.collection.picture.blurb.group h4.heading a:hover
   text-decoration: underline !important;
 }
 
-/* Shared datetime style */
+/* Datetime style */
 li.own.collection.picture.blurb.group p.datetime,
 li.skins.own.picture.blurb.group p.datetime,
 li.collection.picture.blurb.group p.datetime
@@ -2180,7 +2081,7 @@ li.collection.picture.blurb.group p.datetime
   font-style: italic !important;
 }
 
-/* Shared summary blockquote style */
+/* Summary blockquote style */
 li.own.collection.picture.blurb.group blockquote.userstuff.summary,
 li.skins.own.picture.blurb.group blockquote.userstuff.summary,
 li.collection.picture.blurb.group blockquote.userstuff.summary
@@ -2198,9 +2099,7 @@ li.collection.picture.blurb.group blockquote.userstuff.summary
 }
 
 /*
- * Skin blurb summary — pink left border as a visual accent on the CSS preview text.
- * Also suppress the generic .userstuff border-left which would span the whole blurb.
- */
+ * Skin blurb summary */
 li.skins.own.picture.blurb.group blockquote.userstuff.summary
 {
   border-left: 3px solid var(--clr-rose) !important;
@@ -2221,7 +2120,6 @@ blockquote.userstuff.summary
   text-align: left !important;
 }
 
-/* Own-collection-specific */
 li.own.collection.picture.blurb.group .name
 {
   color: var(--clr-indigo-violet) !important;
@@ -2249,7 +2147,6 @@ li.own.collection.picture.blurb.group .icon img
   box-shadow: 0 2px 8px var(--clr-violet-020) !important;
 }
 
-/* Collections blurb extras */
 li.collection.picture.blurb.group .header.module.group
 {
   border-bottom: 1px solid var(--clr-rose-025) !important;
@@ -2369,9 +2266,7 @@ li.collection.picture.blurb.group h6.landmark.heading
 }
 
 /*
- * Reading history — AO3 adds .read to blurbs the user has already opened.
- * Dimming slightly lets unread works stand out without hiding read ones.
- */
+ * Reading history — AO3 adds .read to blurbs the user has already opened */
 li.work.blurb.read.group
 {
   opacity: 0.75 !important;
@@ -2454,8 +2349,7 @@ dl.inspired.index.group dd.child a:hover
  */
 /*
  * Base color/size for all stats rows (kudos, hits, comments, bookmarks).
- * Appears in both work meta blocks and blurb cards; this top-of-section rule
- * cascades into both contexts.
+ * Appears in both work meta blocks and blurb cards.
  */
 .stats,
 dl.stats
@@ -2500,10 +2394,7 @@ ul.tags.cloud.index.group
 }
 
 /*
- * Strip AO3's default grey outer border around the work meta block.
- * The dl.work.meta.group card below provides its own border and shadow,
- * so keeping the outer wrapper border would create a visible double-frame.
- */
+ * Strip AO3's default grey outer border around the work meta block. */
 .work-show #main>.wrapper,
 #main>div.wrapper,
 div.wrapper
@@ -2644,11 +2535,7 @@ dl.work.meta.group dd.stats dl.stats dd
 }
 
 /*
- * Tag color overrides inside dl.work.meta.group.
- * These must stay AFTER the dd rule above so they win the cascade.
- * The generic tag rules in §9 are lower-specificity and would be overridden
- * by dl.work.meta.group dd { color } without these explicit per-type rules.
- */
+ * Tag color overrides inside dl.work.meta.group */
 
 dl.work.meta.group dd.rating a,
 dl.work.meta.group dd.rating a:visited
@@ -2711,7 +2598,7 @@ dl.work.meta.group dd.warnings a:hover
   color: var(--clr-bg) !important;
 }
 
-/* Chapter preface — wraps chapter title + beginning notes */
+/* Chapter preface */
 div.preface.group
 {
   margin-bottom: 1.5em !important;
@@ -2742,7 +2629,7 @@ div.preface.group h3.title a:hover
   text-decoration: underline !important;
 }
 
-/* Chapter number / position label */
+/* Chapter number / position */
 div.preface.group .chapter.preface h3 span.position
 {
   color: var(--clr-mist-blue) !important;
@@ -2750,7 +2637,7 @@ div.preface.group .chapter.preface h3 span.position
   font-weight: 400 !important;
 }
 
-/* Author notes (beginning & end) */
+/* Author notes */
 div.preface.group .notes.module,
 div.afterword.group .notes.module
 {
@@ -2830,10 +2717,6 @@ li.comment
   padding: 1em 0 !important;
 }
 
-/*
- * :not(:has(textarea)):not(:has(input)) — suppress the hover highlight when a reply or
- * edit form is open inside the comment, so the green wash doesn't fight the form background.
- */
 div.comment:hover:not(:has(textarea)):not(:has(input[type="text"])),
 li.comment:hover:not(:has(textarea)):not(:has(input[type="text"]))
 {
@@ -2844,11 +2727,7 @@ li.comment:hover:not(:has(textarea)):not(:has(input[type="text"]))
 }
 
 /*
- * Nested replies — reversed gradient gives each depth level a distinct top stripe:
- * depth 1: cool-to-warm (rose start);
- * depth 2: warm-to-pale (rose fades to lavender then nearly white).
- * Combined with the 1.5em margin-left indentation, this provides a quick visual depth cue.
- */
+ * Nested replies */
 div.comment div.comment,
 li.comment li.comment
 {
@@ -2879,7 +2758,7 @@ li.comment .heading a:visited
   font-weight: bold !important;
 }
 
-/* Comment bylines — slim, no gradient band */
+/* Comment bylines */
 li.comment:nth-child(odd) h4.byline,
 li.comment:nth-child(even) h4.byline
 {
@@ -3003,7 +2882,7 @@ li.comment blockquote
  * ============================================
  */
 
-/* Mass edit fieldset — no card, just bare layout */
+/* Mass edit fieldset */
 #inbox-form fieldset.actions
 {
   background: none !important;
@@ -3092,9 +2971,7 @@ li.comment blockquote
 }
 
 /*
- * Read inbox items — 80% opacity so unread items stand out without hiding
- * read ones entirely. Mirrors the .blurb.read opacity in §10.
- */
+ * Read inbox items */
 #inbox-form li.read.comment.group
 {
   opacity: 0.8 !important;
@@ -3120,7 +2997,6 @@ li.comment blockquote
   padding: 0.3em 0.75em !important;
 }
 
-/* byline link style covered by li.comment h4.byline a above */
 
 #inbox-form li.comment h4.byline a:hover
 {
@@ -3249,8 +3125,7 @@ span.claimed
  */
 
 /*
- * .notice — informational (yellow). .error reuses this style since AO3
- * displays most form errors inside .notice containers.
+ * .notice — informational (yellow)
  */
 .notice,
 p.notice,
@@ -3267,8 +3142,7 @@ p.notice,
 }
 
 /*
- * .caution — stronger orange/red; reserved for warnings requiring user action
- * (e.g. deleted work notice, TOS violation banners).
+ * .caution — stronger orange/red
  */
 .caution,
 p.caution,
@@ -3460,10 +3334,7 @@ p.caution.notice
 }
 
 /*
- * Favorite list items — full-width link blocks. Odd rows get a subtle lavender tint.
- * On hover, padding-left shifts the item right and alternating gradient directions
- * (odd: left-to-right, even: right-starting) give the list a gentle animated rhythm.
- */
+ * Favorite list items */
 .splash .favorite li a
 {
   border-radius: 4px !important;
@@ -3541,10 +3412,7 @@ p.caution.notice
 }
 
 /*
- * --- SPLASH LAYOUT (these rules were moved from §20 Zone:System; they belong here).
- * Logged-out layout: .browse sits left at 36%, .intro/.social float right at 60%.
- * .browse li uses 50% floated tiles so two browse links sit side-by-side per row. ---
- */
+ * --- SPLASH LAYOUT --- */
 
 .splash
 {
@@ -3843,10 +3711,6 @@ ul.collection.picture.index.group
   margin: 6px 0 !important;
 }
 
-/*
- * Fandom tag pill color/shape on media-index is handled by the consolidated
- * .fandoms a rule in §9 — no additional rule is needed here.
- */
 
 #main.media-index li.medium.listbox.group p.actions a
 {
@@ -3862,7 +3726,6 @@ ul.collection.picture.index.group
   text-decoration: underline !important;
 }
 
-/* --- /media/[Category]/fandoms drill-down --- */
 #main.fandoms-index li.letter.listbox.group
 {
   align-self: start !important;
@@ -3950,8 +3813,6 @@ ul.collection.picture.index.group
   margin: 3px !important;
 }
 
-/* Fandom tag pills on fandoms-index covered by consolidated fandom tag rule in section 9 */
-
 /*
  * ============================================
  * 17. PROFILE & STATS PAGES
@@ -3960,7 +3821,6 @@ ul.collection.picture.index.group
 
 /*
  * dl.statistics.meta.group and .wrapper dl.meta share identical base styles.
- * The only difference is dd margin-bottom (0.2em vs 0.3em), handled below.
  */
 dl.statistics.meta.group,
 .wrapper dl.meta
@@ -4044,9 +3904,7 @@ ul.statistics.index.group li.fandom.listbox.group
 }
 
 /*
- * Fandom group heading — full-bleed gradient banner. border-radius:0 because
- * the parent's overflow:hidden already handles corner clipping.
- */
+ * Fandom group heading */
 ul.statistics.index.group li.fandom.listbox.group h5.heading
 {
   background: linear-gradient(135deg, var(--clr-indigo) 0%, var(--clr-violet) 60%, var(--clr-rose) 100%) !important;
@@ -4059,7 +3917,7 @@ ul.statistics.index.group li.fandom.listbox.group h5.heading
   padding: 6px 16px !important;
 }
 
-/* Work rows inside the fandom card — separated by faint orchid rules. */
+/* Work rows inside the fandom card */
 ul.statistics.index.group li.fandom.listbox.group ul.index.group
 {
   list-style: none !important;
@@ -4078,7 +3936,7 @@ ul.statistics.index.group li.fandom.listbox.group ul.index.group li:last-child
   border-bottom: none !important;
 }
 
-/* Work title link inside each row — amethyst, slightly smaller than body text. */
+/* Work title link inside each row */
 ul.statistics.index.group li.fandom.listbox.group ul.index.group li dl dt a
 {
   color: var(--clr-violet-deep) !important;
@@ -4092,7 +3950,7 @@ ul.statistics.index.group li.fandom.listbox.group ul.index.group li dl dt a:hove
   text-decoration: underline !important;
 }
 
-/* Word count shown inline next to the title — muted so it reads as secondary info. */
+/* Word count shown inline next to the title */
 ul.statistics.index.group li.fandom.listbox.group ul.index.group li dl dt span.words
 {
   color: var(--clr-indigo-violet) !important;
@@ -4101,9 +3959,7 @@ ul.statistics.index.group li.fandom.listbox.group ul.index.group li dl dt span.w
 }
 
 /*
- * Stats sub-dl (kudos, comments, bookmarks) for each work row — reset padding
- * since it inherits inside the already-padded li row.
- */
+ * Stats sub-dl (kudos, comments, bookmarks) for each work row */
 ul.statistics.index.group li.fandom.listbox.group ul.index.group li dl dd dl.stats
 {
   margin: 0.3em 0 0 0 !important;
@@ -4125,20 +3981,12 @@ ul.statistics.index.group li.fandom.listbox.group ul.index.group li dl dd dl.sta
 }
 
 /*
- * Alternating row tint — a very faint orchid wash on every second work row
- * to aid scannability when a fandom card has many works.
- */
+ * Alternating row tint */
 .statistics .index li:nth-of-type(2n)
 {
   background: rgba(217, 126, 200, 0.08) !important;
 }
 
-/*
- * Profile page exception: .wrapper dl.meta inherits card styles from the shared
- * dl.statistics.meta.group / .wrapper dl.meta rule above. On the profile page that
- * wrapper already sits inside a .bio.module card, creating a double-card.
- * Strip back to bare layout here.
- */
 .user.home .wrapper dl.meta
 {
   background: none !important;
@@ -4155,9 +4003,7 @@ ul.statistics.index.group li.fandom.listbox.group ul.index.group li dl dd dl.sta
  */
 
 /*
- * "Last visited: [date]" heading pill on the reading history page (/users/name/readings).
- * Displayed as a gradient badge above each blurb to show when you last read the work.
- */
+ * "Last visited:" reading history page */
 .reading h4.viewed
 {
   background: linear-gradient(135deg, var(--clr-indigo) 0%, var(--clr-violet) 60%, var(--clr-rose) 100%) !important;
@@ -4183,8 +4029,8 @@ ul.statistics.index.group li.fandom.listbox.group ul.index.group li dl dd dl.sta
 }
 
 /*
- * Reading history blurb — the "Last visited" footer bar that appears at the
- * bottom of each work blurb on /users/name/readings. Uses flex so the
+ * Reading history blurb — the "Last visited" at the
+ * bottom of each work blurb. Uses flex so the
  * "Last visited: [date]" label and the "Delete from History" button sit on
  * the same row with space between them.
  */
@@ -4202,9 +4048,7 @@ li.reading.work.blurb.group div.user.module.group
 }
 
 /*
- * "Last visited:" heading — stripped of all decoration so it reads as plain
- * body text (no gradient, no border-radius) even though it's an h4.
- */
+ * "Last visited:" heading — stripped of all decoration so it reads as plain text */
 li.reading.work.blurb.group div.user.module.group h4.viewed.heading
 {
   background: none !important;
@@ -4220,9 +4064,7 @@ li.reading.work.blurb.group div.user.module.group h4.viewed.heading
 }
 
 /*
- * The "Last visited:" label text inside the heading — orchid so it reads
- * as a label distinct from the date value that follows it.
- */
+ * The "Last visited:" label text */
 li.reading.work.blurb.group div.user.module.group h4.viewed.heading span
 {
   color: var(--clr-indigo-violet) !important;
@@ -4230,10 +4072,7 @@ li.reading.work.blurb.group div.user.module.group h4.viewed.heading span
 }
 
 /*
- * "Delete from History" button — pill-shaped, blush-rose gradient.
- * Softer than the standard amethyst buttons so a destructive action doesn't
- * look like a primary CTA. appearance:none needed for Safari/iOS override.
- */
+ * "Delete from History" button */
 li.reading.work.blurb.group div.user.module.group input[type="submit"]
 {
   appearance: none !important;
@@ -4272,16 +4111,11 @@ li.reading.work.blurb.group div.user.module.group ul.actions li
 /*
  * ============================================
  * 19. MISCELLANEOUS (Scrollbar, Selection, Pre)
- * Note: ::selection is defined in §1 (Global/Reset) alongside the body reset.
  * ============================================
  */
 
 /*
- * Scrollbar — WebKit-only (Chrome, Safari, Edge). Firefox uses a separate
- * scrollbar-color property which isn't set here since it can't be targeted
- * with the same gradient syntax. The thumb gets the standard amethyst-to-orchid
- * gradient to match the rest of the skin.
- */
+ * Scrollbar */
 ::-webkit-scrollbar
 {
   width: 8px !important;
@@ -4304,11 +4138,7 @@ li.reading.work.blurb.group div.user.module.group ul.actions li
 }
 
 /*
- * Pre / code blocks — used on skin preview pages and in some admin/mod content.
- * Left-bordered like comments, with white-space:pre-wrap so long lines wrap
- * instead of forcing horizontal scroll. The ::before pseudo-element adds a thin
- * two-pixel gradient top-stripe that echoes the header and fieldset accent borders.
- */
+ * Pre / code blocks — used on skin preview pages and in some admin/mod content. */
 pre
 {
   background: linear-gradient(160deg, var(--clr-card) 0%, var(--clr-wisteria-pale) 100%) !important;
@@ -4368,7 +4198,6 @@ pre::before
 
 /* --- 2. SESSIONS (login) --- */
 
-/* Right-align the sign-in form to share the row with the splash intro on wide viewports. */
 .session #signin
 {
   margin-left: 48% !important;
@@ -4394,10 +4223,6 @@ pre::before
   box-shadow: none !important;
 }
 
-/*
- * Authentication legend override — distinct gradient and padding from the
- * general restore rule above. Scoped as fieldset legend for specificity match.
- */
 .authentication fieldset legend
 {
   background: linear-gradient(135deg, var(--clr-violet) 0%, var(--clr-mist-blue) 100%) !important;
@@ -4430,7 +4255,7 @@ pre::before
 
 /* --- 3. SKINS --- */
 
-/* Skins index — padding so text doesn't touch the left edge */
+/* Skins index */
 #main.skins-index li.skins.own.picture.blurb.group,
 #main.skins-index li.blurb
 {
@@ -4490,10 +4315,7 @@ pre::before
 
 /* Page heading */
 /*
- * Section headings on FAQ, support, docs, guideline, and donate pages.
- * Gradient ends at var(--clr-rose) (rose) — intentional. Text is left-aligned over the dark
- * start (var(--clr-indigo)) where contrast is met. The rose tail is decorative and text-free.
- */
+ * Section headings on FAQ, support, docs, guideline, and donate pages. */
 #main.faq h2.heading,
 #main.support h2.heading,
 #main.docs h2.heading,
@@ -4853,10 +4675,7 @@ body #footer
 }
 
 /*
- * Footer links — all three states share the same appearance. Footer content is
- * stable reference material, not navigation where visited-state feedback is useful.
- * Underline appears on hover only.
- */
+ * Footer links — all three states share the same appearance. */
 body #footer a,
 body #footer a:visited,
 body #footer a:hover
@@ -4920,13 +4739,12 @@ body #footer ul.navigation.actions li.module.group h4.heading
   background: transparent !important;
   background-image: none !important;
   border-bottom: 1px solid var(--clr-rose-040) !important;
-  /* semi-transparent rose so the dark footer bg shows through */
   color: var(--clr-bg) !important;
 }
 
 /*
  * ============================================================
- * 22. REPLACE THE AO3 ICONS - reversi / berry blue color scheme
+ * 22. REPLACE THE AO3 ICONS
  * ============================================================
  */
 
